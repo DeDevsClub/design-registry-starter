@@ -9,6 +9,25 @@ import type { ReactNode } from 'react';
 import { ThemeProvider } from '@/providers/theme';
 import { mono, sans } from '../lib/fonts';
 
+const sourceUrl = process.env.NEXT_PUBLIC_SOURCE_URL || 'https://devcdn-ui.dedevs.com';
+
+export const metadata = {
+  title: 'Devcn UI',
+  description: 'Devcn UI is a custom registry of composable, accessible and extensible components designed for use with shadcn/ui.',
+  openGraph: {
+    title: 'Devcn UI',
+    description: 'Devcn UI is a custom registry of composable, accessible and extensible components designed for use with shadcn/ui.',
+    type: 'website',
+    images: [
+      {
+        url: `${sourceUrl}/opengraph-image.png`,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+};
+
 type LayoutProps = {
   readonly children: ReactNode;
 };
