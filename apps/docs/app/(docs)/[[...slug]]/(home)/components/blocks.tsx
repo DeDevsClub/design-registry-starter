@@ -39,9 +39,9 @@ const ExampleCard = ({
   const Icon =
     icon && icon in icons
       ? (props: LucideProps) =>
-        createElement(icons[icon as keyof typeof icons], {
-          ...props,
-        })
+          createElement(icons[icon as keyof typeof icons], {
+            ...props,
+          })
       : null;
 
   return (
@@ -87,7 +87,7 @@ export const Blocks = () => (
         </Link>
       </Button>
     </div>
-    <div className="grid grid-cols-1 py-4 w-full gap-4">
+    <div className="grid w-full grid-cols-1 gap-4 py-4">
       {examples.map((example) => (
         <ExampleCard key={example.name} {...example} />
       ))}

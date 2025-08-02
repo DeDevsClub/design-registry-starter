@@ -22,12 +22,12 @@ export const baseOptions: BaseLayoutProps = {
   githubUrl: 'https://github.com/DeDevsClub/design-registry-starter',
   nav: {
     title: (
-      <div className="flex items-center gap-2 border border-border hover:bg-muted/60 p-2 rounded-md">
+      <div className="flex items-center gap-2 rounded-md border border-border p-2 hover:bg-muted/60">
         <Image
-          src="/logo.svg"
           alt="Devcn UI Design Registry"
-          width={24}
           height={24}
+          src="/logo.svg"
+          width={24}
         />
         <span className="font-semibold text-lg">Devcn UI Design Registry</span>
       </div>

@@ -46,7 +46,7 @@ const exampleCode = [
 
 export const CodeBlockExample = () => (
   <CodeBlock
-    className="aspect-rectangular h-full w-full grid grid-cols-1 span-cols-1"
+    className="span-cols-1 grid aspect-rectangular h-full w-full grid-cols-1"
     data={exampleCode}
     defaultValue={exampleCode[0].language}
   >

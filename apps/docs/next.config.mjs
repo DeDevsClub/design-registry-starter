@@ -102,7 +102,7 @@ const config = {
         source: '/components/ai/:slug*',
         destination: '/components/ai-:slug*',
         permanent: true,
-      }
+      },
     ];
   },
 

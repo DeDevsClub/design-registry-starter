@@ -8,9 +8,9 @@
     "@repo/code-block": "workspace:*",
     "@repo/shadcn-ui": "workspace:*",
     "katex": "^0.16.22",
-    "lucide-react": "^0.515.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "lucide-react": "^0.536.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "react-markdown": "^10.1.0",
     "rehype-katex": "^7.0.1",
     "remark-gfm": "^4.0.1",
@@ -19,8 +19,8 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
-    "typescript": "^5.8.3"
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "typescript": "^5.9.2"
   }
 }

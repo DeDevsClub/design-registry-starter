@@ -7,10 +7,6 @@ import type { ReactNode } from 'react';
 export function ConditionalContainer({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const isHomePage = pathname === '/';
-  
-  return (
-    <div className={isHomePage ? 'landing-page' : ''}>
-      {children}
-    </div>
-  );
-} 
+
+  return <div className={isHomePage ? 'landing-page' : ''}>{children}</div>;
+}

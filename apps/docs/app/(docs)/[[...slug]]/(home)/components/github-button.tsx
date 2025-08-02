@@ -36,7 +36,7 @@ export const GitHubButton = async (): Promise<ReactElement> => {
   return (
     <Button
       asChild
-      className="border-none p-0 ring ring-1 ring-border"
+      className="border-none p-0 ring-1 ring-border"
       size="lg"
       variant="outline"
     >

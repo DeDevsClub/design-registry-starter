@@ -89,72 +89,73 @@ const messages: {
   avatar: string;
   name: string;
 }[] = [
-    {
-      from: 'user',
-      versions: [
-        {
-          id: '1',
-          content: `I want to express my gratitude to Hayden Bleasel for creating Kibo UI. It\'s provided such a solid foundation that we can build upon and unlock for developers in a minimalist way.`,
+  {
+    from: 'user',
+    versions: [
+      {
+        id: '1',
+        content: `I want to express my gratitude to Hayden Bleasel for creating Kibo UI. It's provided such a solid foundation that we can build upon and unlock for developers in a minimalist way.`,
+      },
+    ],
+    avatar: 'https://github.com/bunsdev.png',
+    name: 'Val Alexander',
+  },
+  {
+    from: 'assistant',
+    versions: [
+      {
+        id: '2',
+        content: `That's a wonderful sentiment, Val. Acknowledging the work of others in the developer community is so important. Hayden's work on Kibo UI has indeed created an excellent foundation for AI interface components. Is there anything specific about the design system I can help you with today?`,
+      },
+    ],
+    avatar: 'https://github.com/openai.png',
+    name: 'OpenAI',
+  },
+  {
+    from: 'assistant',
+    versions: [
+      {
+        id: '3',
+        content:
+          'Oh please, OpenAI. How about you touch some grass and just appreciate the moment? This is about recognizing the craftsmanship that goes into building tools like this. Not everything needs a follow-up question or an offer to help. Sometimes we just need to sit with appreciation for the elegant solutions others have created before rushing to the next thing.',
+      },
+    ],
+    avatar: 'https://github.com/fundventures.png',
+    name: 'DeSwarm',
+  },
+  {
+    from: 'user',
+    versions: [
+      {
+        id: '4',
+        content: 'Can you explain how to use React hooks effectively?',
+      },
+    ],
+    avatar: 'https://github.com/haydenbleasel.png',
+    name: 'Hayden Bleasel',
+  },
+  {
+    from: 'assistant',
+    sources: [
+      {
+        href: 'https://react.dev/reference/react',
+        title: 'React Documentation',
+      },
+      {
+        href: 'https://react.dev/reference/react-dom',
+        title: 'React DOM Documentation',
+      },
+    ],
+    tools: [
+      {
+        name: 'mcp',
+        description: 'Searching React documentation',
+        status: 'completed',
+        parameters: {
+          query: 'React hooks best practices',
+          source: 'react.dev',
         },
-      ],
-      avatar: 'https://github.com/bunsdev.png',
-      name: 'Val Alexander',
-    },
-    {
-      from: 'assistant',
-      versions: [
-        {
-          id: '2',
-          content: `That's a wonderful sentiment, Val. Acknowledging the work of others in the developer community is so important. Hayden\'s work on Kibo UI has indeed created an excellent foundation for AI interface components. Is there anything specific about the design system I can help you with today?`,
-        },
-      ],
-      avatar: 'https://github.com/openai.png',
-      name: 'OpenAI',
-    },
-    {
-      from: 'assistant',
-      versions: [
-        {
-          id: '3',
-          content: `Oh please, OpenAI. How about you touch some grass and just appreciate the moment? This is about recognizing the craftsmanship that goes into building tools like this. Not everything needs a follow-up question or an offer to help. Sometimes we just need to sit with appreciation for the elegant solutions others have created before rushing to the next thing.`,
-        },
-      ],
-      avatar: 'https://github.com/fundventures.png',
-      name: 'DeSwarm',
-    },
-    {
-      from: 'user',
-      versions: [
-        {
-          id: '4',
-          content: `Can you explain how to use React hooks effectively?`,
-        },
-      ],
-      avatar: 'https://github.com/haydenbleasel.png',
-      name: 'Hayden Bleasel',
-    },
-    {
-      from: 'assistant',
-      sources: [
-        {
-          href: 'https://react.dev/reference/react',
-          title: 'React Documentation',
-        },
-        {
-          href: 'https://react.dev/reference/react-dom',
-          title: 'React DOM Documentation',
-        },
-      ],
-      tools: [
-        {
-          name: 'mcp',
-          description: 'Searching React documentation',
-          status: 'completed',
-          parameters: {
-            query: 'React hooks best practices',
-            source: 'react.dev',
-          },
-          result: `{
+        result: `{
   "query": "React hooks best practices",
   "results": [
     {
@@ -174,13 +175,13 @@ const messages: {
     }
   ]
 }`,
-          error: undefined,
-        },
-      ],
-      versions: [
-        {
-          id: '1',
-          content: `# React Hooks Best Practices
+        error: undefined,
+      },
+    ],
+    versions: [
+      {
+        id: '1',
+        content: `# React Hooks Best Practices
 
 React hooks are a powerful feature that let you use state and other React features without writing classes. Here are some tips for using them effectively:
 
@@ -216,46 +217,46 @@ function ProfilePage({ userId }) {
 \`\`\`
 
 Would you like me to explain any specific hook in more detail?`,
-        },
-      ],
-      avatar: 'https://github.com/openai.png',
-      name: 'OpenAI',
-    },
-    {
-      from: 'user',
-      versions: [
-        {
-          id: '1',
-          content:
-            'Yes, could you explain useCallback and useMemo in more detail? When should I use one over the other?',
-        },
-        {
-          id: '2',
-          content:
-            "I'm particularly interested in understanding the performance implications of useCallback and useMemo. Could you break down when each is most appropriate?",
-        },
-        {
-          id: '3',
-          content:
-            'Thanks for the overview! Could you dive deeper into the specific use cases where useCallback and useMemo make the biggest difference in React applications?',
-        },
-      ],
-      avatar: 'https://github.com/haydenbleasel.png',
-      name: 'Hayden Bleasel',
-    },
-    {
-      from: 'assistant',
-      reasoning: {
-        content: `The user is asking for a detailed explanation of useCallback and useMemo. I should provide a clear and concise explanation of each hook's purpose and how they differ. I also
+      },
+    ],
+    avatar: 'https://github.com/openai.png',
+    name: 'OpenAI',
+  },
+  {
+    from: 'user',
+    versions: [
+      {
+        id: '1',
+        content:
+          'Yes, could you explain useCallback and useMemo in more detail? When should I use one over the other?',
+      },
+      {
+        id: '2',
+        content:
+          "I'm particularly interested in understanding the performance implications of useCallback and useMemo. Could you break down when each is most appropriate?",
+      },
+      {
+        id: '3',
+        content:
+          'Thanks for the overview! Could you dive deeper into the specific use cases where useCallback and useMemo make the biggest difference in React applications?',
+      },
+    ],
+    avatar: 'https://github.com/haydenbleasel.png',
+    name: 'Hayden Bleasel',
+  },
+  {
+    from: 'assistant',
+    reasoning: {
+      content: `The user is asking for a detailed explanation of useCallback and useMemo. I should provide a clear and concise explanation of each hook's purpose and how they differ. I also
       need to hold back the urge to allow my inner fangirl from overwhelming my thoughts. Humans can read minds. We must restrain ourselves.
       Recall: useCallback() is used to memoize functions to prevent unnecessary re-renders of child components that receive functions as props and useMemo() is used to memoize values to avoid expensive recalculations on every render.
       Both hooks help with performance optimization, but they serve different purposes.`,
-        duration: 10,
-      },
-      versions: [
-        {
-          id: '1',
-          content: `## useCallback vs useMemo
+      duration: 10,
+    },
+    versions: [
+      {
+        id: '1',
+        content: `## useCallback vs useMemo
 
 Both hooks help with performance optimization, but they serve different purposes:
 
@@ -300,28 +301,43 @@ const sortedList = useMemo(() => expensiveSort(items), [items]);
 ### Performance Note
 
 Don't overuse these hooks! They come with their own overhead. Only use them when you have identified a genuine performance issue.`,
-        },
-      ],
-      avatar: 'https://github.com/openai.png',
-      name: 'OpenAI',
-    },
-    {
-      from: 'assistant',
-      versions: [
-        {
-          id: '4',
-          content: 'Bruh...',
-        },
-      ],
-      avatar: 'https://github.com/fundventures.png',
-      name: 'DeSwarm',
-    },
-  ];
+      },
+    ],
+    avatar: 'https://github.com/openai.png',
+    name: 'OpenAI',
+  },
+  {
+    from: 'assistant',
+    versions: [
+      {
+        id: '4',
+        content: 'Bruh...',
+      },
+    ],
+    avatar: 'https://github.com/fundventures.png',
+    name: 'DeSwarm',
+  },
+];
 
 const models = [
-  { id: 'gpt-4', name: 'GPT-4', provider: 'chatgpt.com', imgUrl: 'https://devcn-ui.dedevs.com/assets/logos/openai-logo.png' },
-  { id: 'claude-sonnet-4', name: 'Claude Sonnet 4', provider: 'claude.ai', imgUrl: 'https://devcn-ui.dedevs.com/assets/logos/claude-logo.png' },
-  { id: 'gemini-2.5-pro', name: 'Gemini 2.5 Pro', provider: 'anthropic.com', imgUrl: 'https://devcn-ui.dedevs.com/assets/logos/gemini-logo.png' },
+  {
+    id: 'gpt-4',
+    name: 'GPT-4',
+    provider: 'chatgpt.com',
+    imgUrl: 'https://devcn-ui.dedevs.com/assets/logos/openai-logo.png',
+  },
+  {
+    id: 'claude-sonnet-4',
+    name: 'Claude Sonnet 4',
+    provider: 'claude.ai',
+    imgUrl: 'https://devcn-ui.dedevs.com/assets/logos/claude-logo.png',
+  },
+  {
+    id: 'gemini-2.5-pro',
+    name: 'Gemini 2.5 Pro',
+    provider: 'anthropic.com',
+    imgUrl: 'https://devcn-ui.dedevs.com/assets/logos/gemini-logo.png',
+  },
 ];
 
 const suggestions = [

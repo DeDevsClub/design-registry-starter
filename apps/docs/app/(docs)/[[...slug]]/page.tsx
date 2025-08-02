@@ -83,7 +83,7 @@ export async function generateMetadata(props: {
       images: [
         {
           // url: `/og?slug=${params.slug?.join('/') ?? ''}`,
-          url: `https://devcdn-ui.dedevs.com/opengraph-image.png`,
+          url: 'https://devcdn-ui.dedevs.com/opengraph-image.png',
           width: 1200,
           height: 630,
         },

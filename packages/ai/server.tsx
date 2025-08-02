@@ -1,11 +1,13 @@
 import type { AIResponseProps } from './response';
 
-export function AIResponse({ className, options, children, ...props }: AIResponseProps) {
+export function AIResponse({
+  className,
+  options,
+  children,
+  ...props
+}: AIResponseProps) {
   return (
-    <div
-      className={className}
-      {...props}
-    >
+    <div className={className} {...props}>
       {children}
     </div>
   );

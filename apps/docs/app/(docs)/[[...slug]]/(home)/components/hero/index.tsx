@@ -46,10 +46,14 @@ const icons = [
 ];
 
 export const Hero = () => (
-  <section className='relative isolate overflow-hidden rounded-4xl bg-background pt-8 sm:pt-12 md:pt-16 lg:pt-24' style={{
-    backgroundColor: 'var(--background)',
-    backgroundImage: 'radial-gradient(at 81% 100%, var(--color-pink-300) 0px, transparent 50%), radial-gradient(at 19% 100%, var(--color-purple-300) 0px, transparent 50%)',
-  }}>
+  <section
+    className="relative isolate overflow-hidden rounded-4xl bg-background pt-8 sm:pt-12 md:pt-16 lg:pt-24"
+    style={{
+      backgroundColor: 'var(--background)',
+      backgroundImage:
+        'radial-gradient(at 81% 100%, var(--color-pink-300) 0px, transparent 50%), radial-gradient(at 19% 100%, var(--color-purple-300) 0px, transparent 50%)',
+    }}
+  >
     <div className="pointer-events-none absolute right-0 bottom-0 left-0 select-none border-background/15 border-t">
       <div className="grid grid-cols-24 divide-x divide-y divide-background/15">
         {new Array(24 * 12).fill(0).map((_, index) => (
@@ -95,7 +99,9 @@ export const Hero = () => (
         </h1>
         <div className="mx-auto max-w-4xl text-center">
           <p className="mt-0 mb-0 text-muted-foreground lg:text-lg xl:text-xl 2xl:text-2xl">
-            {`Devcn UI is a custom registry of composable, accessible and extensible components designed for use with shadcn/ui. \nFree and [open source](https://github.com/DeDevsClub/design-registry-starter), forever and made possible by the DeDevsClub community and the efforts of HaydenBleasel of [Kibo UI](https://github.com/HaydenBleasel/kibo).`}
+            {
+              'Devcn UI is a custom registry of composable, accessible and extensible components designed for use with shadcn/ui. \nFree and [open source](https://github.com/DeDevsClub/design-registry-starter), forever and made possible by the DeDevsClub community and the efforts of HaydenBleasel of [Kibo UI](https://github.com/HaydenBleasel/kibo).'
+            }
           </p>
         </div>
         <div className="flex items-center justify-center gap-4">

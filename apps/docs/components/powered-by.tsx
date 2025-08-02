@@ -1,5 +1,5 @@
-import { cn } from '@repo/shadcn-ui/lib/utils';
 import { Icon, type IconProps } from '@iconify/react';
+import { cn } from '@repo/shadcn-ui/lib/utils';
 
 type PoweredByProps = {
   packages: { name: string; url: string; icon: string }[];
@@ -17,7 +17,7 @@ type PoweredByProps = {
 
 export const PoweredBy = ({ packages }: PoweredByProps) => (
   <div className="not-prose mb-8 flex flex-col gap-2">
-    <p className="text-text dark:text-text text-sm">Powered by</p>
+    <p className="text-sm text-text dark:text-text">Powered by</p>
     <div className="flex flex-row flex-wrap items-center gap-2">
       {packages.map(({ name, url, icon }) => (
         <a
@@ -31,8 +31,10 @@ export const PoweredBy = ({ packages }: PoweredByProps) => (
           target="_blank"
         >
           <Icon
-            icon={icon as IconProps['icon'] | 'material-symbols:code-blocks-rounded'}
             className="size-6 overflow-hidden rounded-sm object-cover"
+            icon={
+              icon as IconProps['icon'] | 'material-symbols:code-blocks-rounded'
+            }
           />
           <p className="text-base text-primary">{name}</p>
         </a>

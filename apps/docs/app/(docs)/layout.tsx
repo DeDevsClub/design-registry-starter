@@ -36,4 +36,4 @@ export default function DocsRootLayout({ children }: { children: ReactNode }) {
       </DocsLayout>
     </ConditionalContainer>
   );
-} 
+}

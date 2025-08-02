@@ -1,7 +1,5 @@
 {
   "root": true,
   "title": "Blocks",
-  "pages": [
-    "ai-chatbot"
-  ]
+  "pages": ["ai-chatbot"]
 }

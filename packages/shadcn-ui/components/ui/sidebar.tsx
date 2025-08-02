@@ -69,9 +69,17 @@ function SidebarProvider({
   const isMobile = useIsMobile()
   const [openMobile, setOpenMobile] = React.useState(false)
 
-  // This is the internal state of the sidebar.
-  // We use openProp and setOpenProp for control from outside the component.
-  const [_open, _setOpen] = React.useState(defaultOpen)
+  // Initialize state from cookie on client side
+  const [_open, _setOpen] = React.useState(() => {
+    if (typeof window === 'undefined') return defaultOpen
+    
+    const cookieValue = document.cookie
+      .split('; ')
+      .find(row => row.startsWith(`${SIDEBAR_COOKIE_NAME}=`))
+      ?.split('=')[1]
+    
+    return cookieValue ? cookieValue === 'true' : defaultOpen
+  })
   const open = openProp ?? _open
   const setOpen = React.useCallback(
     (value: boolean | ((value: boolean) => boolean)) => {
@@ -83,7 +91,9 @@ function SidebarProvider({
       }
 
       // This sets the cookie to keep the sidebar state.
-      document.cookie = `${SIDEBAR_COOKIE_NAME}=${openState}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`
+      if (typeof window !== 'undefined') {
+        document.cookie = `${SIDEBAR_COOKIE_NAME}=${openState}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`
+      }
     },
     [setOpenProp, open]
   )
@@ -108,6 +118,36 @@ function SidebarProvider({
     window.addEventListener("keydown", handleKeyDown)
     return () => window.removeEventListener("keydown", handleKeyDown)
   }, [toggleSidebar])
+
+  // Handle click outside to close sidebar on mobile
+  React.useEffect(() => {
+    if (!isMobile || !openMobile) return
+
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element
+      const sidebar = document.querySelector('[data-sidebar="sidebar"]')
+      const trigger = document.querySelector('[data-sidebar="trigger"]')
+      
+      if (
+        sidebar &&
+        !sidebar.contains(target) &&
+        trigger &&
+        !trigger.contains(target)
+      ) {
+        setOpenMobile(false)
+      }
+    }
+
+    // Add a small delay to prevent immediate closing when opening
+    const timeoutId = setTimeout(() => {
+      document.addEventListener('mousedown', handleClickOutside)
+    }, 100)
+
+    return () => {
+      clearTimeout(timeoutId)
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isMobile, openMobile])
 
   // We add a state so that we can do data-state="expanded" or "collapsed".
   // This makes it easier to style the sidebar with Tailwind classes.
@@ -194,6 +234,13 @@ function Sidebar({
             } as React.CSSProperties
           }
           side={side}
+          onPointerDownOutside={(event) => {
+            // Prevent closing when clicking on the trigger
+            const trigger = document.querySelector('[data-sidebar="trigger"]')
+            if (trigger && trigger.contains(event.target as Node)) {
+              event.preventDefault()
+            }
+          }}
         >
           <SheetHeader className="sr-only">
             <SheetTitle>Sidebar</SheetTitle>
@@ -258,7 +305,7 @@ function SidebarTrigger({
   onClick,
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { toggleSidebar } = useSidebar()
+  const { toggleSidebar, state, isMobile } = useSidebar()
 
   return (
     <Button
@@ -266,30 +313,41 @@ function SidebarTrigger({
       data-slot="sidebar-trigger"
       variant="ghost"
       size="icon"
-      className={cn("size-7", className)}
+      className={cn(
+        "size-7 transition-transform duration-200",
+        // Rotate icon based on sidebar state
+        !isMobile && state === "collapsed" && "rotate-180",
+        className
+      )}
       onClick={(event) => {
+        event.stopPropagation()
         onClick?.(event)
         toggleSidebar()
       }}
       {...props}
     >
-      <PanelLeftIcon />
-      <span className="sr-only">Toggle Sidebar</span>
+      <PanelLeftIcon className="transition-transform duration-200" />
+      <span className="sr-only">
+        {state === "expanded" ? "Collapse" : "Expand"} Sidebar
+      </span>
     </Button>
   )
 }
 
 function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {
-  const { toggleSidebar } = useSidebar()
+  const { toggleSidebar, state } = useSidebar()
 
   return (
     <button
       data-sidebar="rail"
       data-slot="sidebar-rail"
-      aria-label="Toggle Sidebar"
+      aria-label={`${state === "expanded" ? "Collapse" : "Expand"} Sidebar`}
       tabIndex={-1}
-      onClick={toggleSidebar}
-      title="Toggle Sidebar"
+      onClick={(event) => {
+        event.stopPropagation()
+        toggleSidebar()
+      }}
+      title={`${state === "expanded" ? "Collapse" : "Expand"} Sidebar`}
       className={cn(
         "hover:after:bg-sidebar-border absolute inset-y-0 z-20 hidden w-4 -translate-x-1/2 transition-all ease-linear group-data-[side=left]:-right-4 group-data-[side=right]:left-0 after:absolute after:inset-y-0 after:left-1/2 after:w-[2px] sm:flex",
         "in-data-[side=left]:cursor-w-resize in-data-[side=right]:cursor-e-resize",

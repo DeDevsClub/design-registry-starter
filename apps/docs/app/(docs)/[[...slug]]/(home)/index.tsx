@@ -5,7 +5,7 @@ import { Footer } from './components/footer';
 import { Hero } from './components/hero';
 
 const Home = () => (
-  <div className='mt-[var(--fd-nav-height)] w-full p-4'>
+  <div className="mt-[var(--fd-nav-height)] w-full p-4">
     <Hero />
     <Components />
     <Blocks />

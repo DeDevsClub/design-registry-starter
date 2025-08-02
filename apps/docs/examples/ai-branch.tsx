@@ -74,7 +74,10 @@ const Example = () => {
           {assistantMessages.map((message) => (
             <AIMessage from="assistant" key={message.id}>
               <AIMessageContent>{message.content}</AIMessageContent>
-              <AIMessageAvatar name="DeSwarm" src="https://github.com/fundventures.png" />
+              <AIMessageAvatar
+                name="DeSwarm"
+                src="https://github.com/fundventures.png"
+              />
             </AIMessage>
           ))}
         </AIBranchMessages>

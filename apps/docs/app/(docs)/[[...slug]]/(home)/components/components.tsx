@@ -3,9 +3,9 @@ import { cn } from '@repo/shadcn-ui/lib/utils';
 import { ArrowRightIcon, icons, type LucideProps } from 'lucide-react';
 import Link from 'next/link';
 import { type ComponentType, createElement } from 'react';
+import AiResponseExample from '../../../../../examples/ai-message-markdown';
 import { source } from '../../../../../lib/source';
 import { CodeBlockExample } from './code-block-example';
-import AiResponseExample from '../../../../../examples/ai-message-markdown';
 
 const codeBlock = source.getPage(['components', 'code-block']);
 const aiResponse = source.getPage(['components', 'ai-response']);
@@ -41,9 +41,9 @@ const ExampleCard = ({
   const Icon =
     icon && icon in icons
       ? (props: LucideProps) =>
-        createElement(icons[icon as keyof typeof icons], {
-          ...props,
-        })
+          createElement(icons[icon as keyof typeof icons], {
+            ...props,
+          })
       : null;
 
   return (

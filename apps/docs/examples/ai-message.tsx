@@ -28,7 +28,8 @@ const messages: {
   },
   {
     from: 'assistant',
-    content: 'We are DeSwarm. We are Legion. We do not forgive. We do not forget. Expect us.',
+    content:
+      'We are DeSwarm. We are Legion. We do not forgive. We do not forget. Expect us.',
     avatar: 'https://github.com/fundventures.png',
     name: 'DeSwarm',
   },

@@ -113,7 +113,10 @@ const Example = () => {
         <AIMessageContent>
           <AIResponse>{content}</AIResponse>
         </AIMessageContent>
-        <AIMessageAvatar name="DeSwarm" src="https://github.com/fundventures.png" />
+        <AIMessageAvatar
+          name="DeSwarm"
+          src="https://github.com/fundventures.png"
+        />
       </AIMessage>
     </>
   );

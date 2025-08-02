@@ -1,5 +1,4 @@
-
-import * as React from 'react';
+import type * as React from 'react';
 
 import './globals.css';
 // import { GoogleAnalytics } from '@next/third-parties/google';
@@ -8,18 +7,21 @@ import { TooltipProvider } from '@repo/shadcn-ui/components/ui/tooltip';
 import { cn } from '@repo/shadcn-ui/lib/utils';
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import { RootProvider } from 'fumadocs-ui/provider';
+import type { Metadata } from 'next';
 import { ThemeProvider } from '@/providers/theme';
 import { mono, sans } from '../lib/fonts';
-import { Metadata } from 'next';
 
-const sourceUrl = process.env.NEXT_PUBLIC_SOURCE_URL || 'https://devcdn-ui.dedevs.com';
+const sourceUrl =
+  process.env.NEXT_PUBLIC_SOURCE_URL || 'https://devcdn-ui.dedevs.com';
 
 export const metadata: Metadata = {
   title: 'Devcn UI',
-  description: 'Devcn UI is a custom registry of composable, accessible and extensible components designed for use with shadcn/ui.',
+  description:
+    'Devcn UI is a custom registry of composable, accessible and extensible components designed for use with shadcn/ui.',
   openGraph: {
     title: 'Devcn UI',
-    description: 'Devcn UI is a custom registry of composable, accessible and extensible components designed for use with shadcn/ui.',
+    description:
+      'Devcn UI is a custom registry of composable, accessible and extensible components designed for use with shadcn/ui.',
     type: 'website',
     images: [
       {
@@ -35,9 +37,7 @@ type LayoutProps = {
   children: React.ReactNode;
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<LayoutProps>) {
+export default function RootLayout({ children }: Readonly<LayoutProps>) {
   return (
     <html
       className={cn(
