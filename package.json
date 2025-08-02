@@ -1,6 +1,10 @@
 {
-  "name": "ui",
+  "name": "design-registry-starter",
+  "description": "Design Registry Starter Kit",
   "private": true,
+  "version": "0.1.0",
+  "author": "V Alexander",
+  "license": "MIT",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
