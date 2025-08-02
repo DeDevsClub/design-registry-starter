@@ -6,7 +6,7 @@
     "shadcn-ui",
     "ui"
   ],
-  "totalComponents": 20,
+  "totalComponents": 21,
   "componentsByPackage": {
     "ai": [
       {
@@ -153,6 +153,19 @@
           "remark-gfm",
           "remark-math"
         ]
+      },
+      {
+        "name": "simple",
+        "displayName": "Simple",
+        "package": "ai",
+        "filePath": "/Users/buns/Documents/GitHub/DeDevsClub/design-registry-starter/packages/ai/simple.tsx",
+        "fileName": "simple",
+        "hasTypeScript": true,
+        "exports": [
+          "SimpleAIProps",
+          "SimpleAI"
+        ],
+        "dependencies": []
       },
       {
         "name": "source",
@@ -399,6 +412,10 @@
       "package": "ai"
     },
     {
+      "name": "input",
+      "package": "ai"
+    },
+    {
       "name": "message",
       "package": "ai"
     },
@@ -408,6 +425,10 @@
     },
     {
       "name": "response",
+      "package": "ai"
+    },
+    {
+      "name": "simple",
       "package": "ai"
     },
     {
@@ -435,6 +456,14 @@
       "package": "eslint-config"
     },
     {
+      "name": "toaster",
+      "package": "shadcn-ui"
+    },
+    {
+      "name": "toaster",
+      "package": "shadcn-ui"
+    },
+    {
       "name": "use-mobile",
       "package": "shadcn-ui"
     },
@@ -447,9 +476,17 @@
       "package": "shadcn-ui"
     },
     {
+      "name": "button",
+      "package": "ui"
+    },
+    {
+      "name": "card",
+      "package": "ui"
+    },
+    {
       "name": "code",
       "package": "ui"
     }
   ],
-  "lastScanned": "2025-08-02T18:59:45.608Z"
+  "lastScanned": "2025-08-02T23:30:03.020Z"
 }

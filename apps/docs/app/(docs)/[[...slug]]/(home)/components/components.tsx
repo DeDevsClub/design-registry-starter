@@ -3,7 +3,7 @@ import { cn } from '@repo/shadcn-ui/lib/utils';
 import { ArrowRightIcon, icons, type LucideProps } from 'lucide-react';
 import Link from 'next/link';
 import { type ComponentType, createElement } from 'react';
-import AiResponseExample from '../../../../../examples/ai-message-markdown';
+// import AiResponseExample from '../../../../../examples/ai-message-markdown'; // Disabled
 import { source } from '../../../../../lib/source';
 import { CodeBlockExample } from './code-block-example';
 
@@ -21,7 +21,11 @@ const examples = [
     icon: aiResponse?.data.icon,
     name: aiResponse?.data.title,
     description: aiResponse?.data.description,
-    component: () => <AiResponseExample />,
+    component: () => (
+      <div className="flex items-center justify-center p-4 bg-muted rounded">
+        <p className="text-sm text-muted-foreground">AI Response Component</p>
+      </div>
+    ),
   },
 ];
 

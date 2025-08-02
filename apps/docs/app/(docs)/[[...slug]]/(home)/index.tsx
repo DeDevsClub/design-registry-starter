@@ -1,7 +1,6 @@
 import { Blocks } from './components/blocks';
 import { CallToAction } from './components/call-to-action';
 import { Components } from './components/components';
-import { Footer } from './components/footer';
 import { Hero } from './components/hero';
 
 const Home = () => (
@@ -10,7 +9,6 @@ const Home = () => (
     <Components />
     <Blocks />
     <CallToAction />
-    {/* <Footer /> */}
   </div>
 );
 
