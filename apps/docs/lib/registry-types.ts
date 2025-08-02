@@ -43,7 +43,6 @@ export const REGISTRY_COMPONENTS = [
   "input-otp",
   "label",
   "menubar",
-  "my-button",
   "navigation-menu",
   "pagination",
   "popover",
