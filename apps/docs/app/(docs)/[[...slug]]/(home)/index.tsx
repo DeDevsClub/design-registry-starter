@@ -10,7 +10,7 @@ const Home = () => (
     <Components />
     <Blocks />
     <CallToAction />
-    <Footer />
+    {/* <Footer /> */}
   </div>
 );
 

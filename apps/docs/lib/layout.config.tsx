@@ -1,5 +1,5 @@
-import { Button } from '@repo/shadcn-ui/components/ui/button';
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
+import Image from 'next/image';
 
 export const baseOptions: BaseLayoutProps = {
   links: [
@@ -22,22 +22,13 @@ export const baseOptions: BaseLayoutProps = {
   githubUrl: 'https://github.com/DeDevsClub/design-registry-starter',
   nav: {
     title: (
-      <div className="flex items-center gap-2">
-        <svg
-          className="h-[18px] w-auto"
-          fill="none"
-          viewBox="0 0 116 116"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>Devcn UI Design Registry</title>
-          <g fill="currentColor">
-            <path
-              clipRule="evenodd"
-              d="m29.3378 0h87.0002v87l-29.0002 29v-87h-87.000031zm-29.000031 95.7389v-37.7389h37.738831zm58.000031 20.2611h-37.249l37.249-37.2488z"
-              fillRule="evenodd"
-            />
-          </g>
-        </svg>
+      <div className="flex items-center gap-2 border border-border hover:bg-muted/60 p-2 rounded-md">
+        <Image
+          src="/logo.svg"
+          alt="Devcn UI Design Registry"
+          width={24}
+          height={24}
+        />
         <span className="font-semibold text-lg">Devcn UI Design Registry</span>
       </div>
     ),

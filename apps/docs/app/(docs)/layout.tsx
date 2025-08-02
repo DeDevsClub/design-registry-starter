@@ -11,10 +11,10 @@ export default function DocsRootLayout({ children }: { children: ReactNode }) {
         {...baseOptions}
         nav={{
           ...baseOptions.nav,
-          mode: 'top',
+          mode: 'auto',
         }}
         sidebar={{
-          collapsible: false,
+          collapsible: true,
           tabs: [
             {
               title: 'Docs',

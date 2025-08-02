@@ -2,10 +2,6 @@
   "root": true,
   "title": "Blocks",
   "pages": [
-    "---Applications---",
-    "ai-chatbot",
-    "---Websites---",
-    "code-block",
-    "snippet"
+    "ai-chatbot"
   ]
 }

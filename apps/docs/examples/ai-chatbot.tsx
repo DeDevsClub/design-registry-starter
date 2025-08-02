@@ -319,9 +319,9 @@ Don't overuse these hooks! They come with their own overhead. Only use them when
   ];
 
 const models = [
-  { id: 'gpt-4', name: 'GPT-4', provider: 'chatgpt.com', imgUrl: 'https://devcn-ui.dedevs.com/logos/openai-logo.png' },
-  { id: 'claude-sonnet-4', name: 'Claude Sonnet 4', provider: 'claude.ai', imgUrl: 'https://devcn-ui.dedevs.com/logos/claude-logo.png' },
-  { id: 'gemini-2.5-pro', name: 'Gemini 2.5 Pro', provider: 'anthropic.com', imgUrl: 'https://devcn-ui.dedevs.com/logos/gemini-logo.png' },
+  { id: 'gpt-4', name: 'GPT-4', provider: 'chatgpt.com', imgUrl: 'https://devcn-ui.dedevs.com/assets/logos/openai-logo.png' },
+  { id: 'claude-sonnet-4', name: 'Claude Sonnet 4', provider: 'claude.ai', imgUrl: 'https://devcn-ui.dedevs.com/assets/logos/claude-logo.png' },
+  { id: 'gemini-2.5-pro', name: 'Gemini 2.5 Pro', provider: 'anthropic.com', imgUrl: 'https://devcn-ui.dedevs.com/assets/logos/gemini-logo.png' },
 ];
 
 const suggestions = [
