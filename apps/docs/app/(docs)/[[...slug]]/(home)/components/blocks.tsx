@@ -47,12 +47,12 @@ const ExampleCard = ({
   return (
     <div
       className={cn(
-        'flex h-full flex-col gap-8 rounded-lg bg-secondary p-4 sm:p-8',
+        'flex h-full flex-col gap-2 rounded-lg bg-secondary p-4 sm:p-8',
         className
       )}
       key={name}
     >
-      <div className="grid gap-4">
+      <div className="grid gap-2">
         <div className="flex items-center gap-2">
           {Icon && <Icon className="text-muted-foreground" size={16} />}
           {name && <p className="font-medium">{name}</p>}
@@ -70,12 +70,12 @@ const ExampleCard = ({
 
 export const Blocks = () => (
   <div className="container mx-auto">
-    <div className="flex w-full flex-col items-start justify-between gap-4 py-16 md:flex-row">
-      <div className="grid gap-4">
-        <h2 className="max-w-lg font-semibold text-3xl">
+    <div className="flex w-full flex-col items-start justify-between gap-2 py-16 md:flex-row">
+      <div className="grid gap-2">
+        <h2 className="max-w-full font-semibold text-3xl">
           Building blocks for interfaces
         </h2>
-        <p className="max-w-lg text-balance text-lg text-muted-foreground">
+        <p className="max-w-full text-balance text-lg text-muted-foreground">
           Get your apps and websites up and running quickly with precomposed and
           animated blocks.
         </p>
@@ -87,7 +87,7 @@ export const Blocks = () => (
         </Link>
       </Button>
     </div>
-    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+    <div className="grid grid-cols-1 py-4 w-full gap-4">
       {examples.map((example) => (
         <ExampleCard key={example.name} {...example} />
       ))}

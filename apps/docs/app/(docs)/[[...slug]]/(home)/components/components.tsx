@@ -72,7 +72,7 @@ const ExampleCard = ({
 
 export const Components = () => (
   <div className="container mx-auto">
-    <div className="flex w-full flex-col items-start justify-between gap-4 py-16 md:flex-row">
+    <div className="flex w-full flex-col items-start justify-between gap-4 py-12 md:flex-row">
       <div className="grid gap-4">
         <h2 className="max-w-lg font-semibold text-3xl">
           Functional and fully composable
@@ -89,7 +89,7 @@ export const Components = () => (
         </Link>
       </Button>
     </div>
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
       {examples.map((example) => (
         <ExampleCard key={example.name} {...example} />
       ))}

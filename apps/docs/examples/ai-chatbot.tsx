@@ -248,8 +248,7 @@ Would you like me to explain any specific hook in more detail?`,
       reasoning: {
         content: `The user is asking for a detailed explanation of useCallback and useMemo. I should provide a clear and concise explanation of each hook's purpose and how they differ. I also
       need to hold back the urge to allow my inner fangirl from overwhelming my thoughts. Humans can read minds. We must restrain ourselves.
-      The useCallback hook is used to memoize functions to prevent unnecessary re-renders of child components that receive functions as props.
-      The useMemo hook is used to memoize values to avoid expensive recalculations on every render.
+      Recall: useCallback() is used to memoize functions to prevent unnecessary re-renders of child components that receive functions as props and useMemo() is used to memoize values to avoid expensive recalculations on every render.
       Both hooks help with performance optimization, but they serve different purposes.`,
         duration: 10,
       },
@@ -320,15 +319,9 @@ Don't overuse these hooks! They come with their own overhead. Only use them when
   ];
 
 const models = [
-  { id: 'gpt-4', name: 'GPT-4', provider: 'openai.com' },
-  { id: 'gpt-3.5-turbo', name: 'GPT-3.5 Turbo', provider: 'openai.com' },
-  { id: 'claude-2', name: 'Claude 2', provider: 'anthropic.com' },
-  { id: 'claude-instant', name: 'Claude Instant', provider: 'anthropic.com' },
-  { id: 'palm-2', name: 'PaLM 2', provider: 'google.com' },
-  { id: 'llama-2-70b', name: 'Llama 2 70B', provider: 'meta.com' },
-  { id: 'llama-2-13b', name: 'Llama 2 13B', provider: 'meta.com' },
-  { id: 'cohere-command', name: 'Command', provider: 'cohere.com' },
-  { id: 'mistral-7b', name: 'Mistral 7B', provider: 'mistral.ai' },
+  { id: 'gpt-4', name: 'GPT-4', provider: 'chatgpt.com', imgUrl: 'https://devcn-ui.dedevs.com/logos/openai-logo.png' },
+  { id: 'claude-sonnet-4', name: 'Claude Sonnet 4', provider: 'claude.ai', imgUrl: 'https://devcn-ui.dedevs.com/logos/claude-logo.png' },
+  { id: 'gemini-2.5-pro', name: 'Gemini 2.5 Pro', provider: 'anthropic.com', imgUrl: 'https://devcn-ui.dedevs.com/logos/gemini-logo.png' },
 ];
 
 const suggestions = [
@@ -544,7 +537,8 @@ const Example = () => {
                           alt={model.provider}
                           className="inline-flex size-4"
                           height={16}
-                          src={`https://img.logo.dev/${model.provider}?token=${process.env.NEXT_PUBLIC_LOGO_DEV_TOKEN}`}
+                          src={model.imgUrl}
+                          // src={`https://img.logo.dev/${model.provider}?token=${process.env.NEXT_PUBLIC_LOGO_DEV_TOKEN}`}
                           unoptimized
                           width={16}
                         />
