@@ -9,7 +9,8 @@ Once a Devcn UI component is installed, you can import it and use it in your app
 
 Let's say you want to create a chatbot interface using the Devcn UI AI components. Here's how you might compose them together:
 
-```tsx title="ChatInterface.tsx"
+```jsx
+// ChatInterface.tsx
 'use client';
 
 import {
@@ -19,7 +20,7 @@ import {
   AIMessageContent,
   AIResponse,
   AIInput
-} from '@/components/ui/devcn-ui/ai';
+} from '@/packages/ai/ai';
 
 const ChatInterface = () => (
   <div className="flex flex-col h-[600px]">
@@ -44,10 +45,8 @@ const ChatInterface = () => (
             2. Import it into your React component
             3. Use it in your JSX
             
-            ```tsx
-            // Example import
-            import { AIResponse } from '@/components/ui/devcn-ui/ai';
-            ```
+            Example import:
+            import { AIResponse } from '@/packages/ai/ai';
             
             Components are available in your codebase for easy customization.
           </AIResponse>
@@ -55,7 +54,7 @@ const ChatInterface = () => (
         <AIMessageAvatar fallback="AI" />
       </AIMessage>
     </AIConversation>
-    
+
     {/* User input */}
     <AIInput placeholder="Ask a question..." />
   </div>
@@ -66,7 +65,7 @@ export default ChatInterface;
 
 In the example above, we import various AI components from our Devcn UI directory and compose them to create a complete chatbot interface. The `AIConversation` component acts as a container for the chat thread, `AIMessage` components represent individual messages with proper styling based on the sender role, and `AIResponse` renders markdown content from the AI assistant. The interface is completed with an `AIInput` component for user interaction.
 
-Feel free to add as many Devcn UI components as you need. Because components are added on-demand, you’re not including code for features you aren’t using. This keeps your app lean. Each component is isolated, so adding one won’t bloat another – yet they all share the same design tokens (colors, fonts, etc.) from shadcn’s theme.
+Feel free to add as many Devcn UI components as you need. Because components are added on-demand, you're not including code for features you aren't using. This keeps your app lean. Each component is isolated, so adding one won't bloat another – yet they all share the same design tokens (colors, fonts, etc.) from shadcn's theme.
 
 ## Extensibility
 
@@ -74,4 +73,4 @@ All Devcn UI components take as many primitive attributes as possible. For examp
 
 ## Customization
 
-After installation, no additional setup is needed. The component’s styles (Tailwind CSS classes) and scripts are already integrated. You can start interacting with the component in your app immediately.
+After installation, no additional setup is needed. The components come with their styles (Tailwind CSS classes) and functionality built-in. You can start using them in your app right away.

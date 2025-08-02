@@ -7,6 +7,10 @@
   "files": [
     "dist/index.js"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DeDevsClub/design-registry-starter.git"
+  },
   "scripts": {
     "build": "turbo build",
     "dev": "PORT=3422 turbo dev",
