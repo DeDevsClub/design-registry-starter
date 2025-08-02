@@ -1,10 +1,10 @@
 'use client';
 
-import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import type { HTMLAttributes, ReactElement, ReactNode } from 'react';
 import { createContext, useContext, useEffect, useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
+import { Button } from '@repo/shadcn-ui/components/ui/button';
+import { cn } from '@repo/shadcn-ui/lib/utils';
 
 type AIBranchContextType = {
   currentBranch: number;
@@ -159,7 +159,7 @@ export const AIBranchPrevious = ({
       type="button"
       variant="ghost"
     >
-      {children ?? <ChevronLeftIcon size={14} />}
+      {children ?? <ChevronLeft size={14} />}
     </Button>
   );
 };
@@ -187,7 +187,7 @@ export const AIBranchNext = ({ className, children }: AIBranchNextProps) => {
       type="button"
       variant="ghost"
     >
-      {children ?? <ChevronRightIcon size={14} />}
+      {children ?? <ChevronRight size={14} />}
     </Button>
   );
 };

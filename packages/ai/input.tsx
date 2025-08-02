@@ -1,22 +1,22 @@
 'use client';
 
-import { Loader2Icon, SendIcon, SquareIcon, XIcon } from 'lucide-react';
+import { Loader2Icon, Send, SquareIcon, X } from 'lucide-react';
 import type {
   ComponentProps,
   HTMLAttributes,
   KeyboardEventHandler,
 } from 'react';
 import { Children, useCallback, useEffect, useRef } from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@repo/shadcn-ui/components/ui/button';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
-import { Textarea } from '@/components/ui/textarea';
-import { cn } from '@/lib/utils';
+} from '@repo/shadcn-ui/components/ui/select';
+import { Textarea } from '@repo/shadcn-ui/components/ui/textarea';
+import { cn } from '@repo/shadcn-ui/lib/utils';
 
 type UseAutoResizeTextareaProps = {
   minHeight: number;
@@ -198,14 +198,14 @@ export const AIInputSubmit = ({
   children,
   ...props
 }: AIInputSubmitProps) => {
-  let Icon = <SendIcon />;
+  let Icon = <Send />;
 
   if (status === 'submitted') {
     Icon = <Loader2Icon className="animate-spin" />;
   } else if (status === 'streaming') {
     Icon = <SquareIcon />;
   } else if (status === 'error') {
-    Icon = <XIcon />;
+    Icon = <X />;
   }
 
   return (

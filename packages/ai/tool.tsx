@@ -9,13 +9,13 @@ import {
   XCircleIcon,
 } from 'lucide-react';
 import type { ComponentProps, ReactNode } from 'react';
-import { Badge } from '@/components/ui/badge';
+import { Badge } from '@repo/shadcn-ui/components/ui/badge';
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@/components/ui/collapsible';
-import { cn } from '@/lib/utils';
+} from '@repo/shadcn-ui/components/ui/collapsible';
+import { cn } from '@repo/shadcn-ui/lib/utils';
 
 export type AIToolStatus = 'pending' | 'running' | 'completed' | 'error';
 

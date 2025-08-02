@@ -1,11 +1,11 @@
 'use client';
 
 import { Button } from '@repo/shadcn-ui/components/ui/button';
-import { ArrowDownIcon } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import type { ComponentProps } from 'react';
 import { useCallback } from 'react';
 import { StickToBottom, useStickToBottomContext } from 'use-stick-to-bottom';
-import { cn } from '@/lib/utils';
+import { cn } from '@repo/shadcn-ui/lib/utils';
 
 export type AIConversationProps = ComponentProps<typeof StickToBottom>;
 
@@ -49,7 +49,7 @@ export const AIConversationScrollButton = () => {
         type="button"
         variant="outline"
       >
-        <ArrowDownIcon className="size-4" />
+        <ArrowDown className="size-4" />
       </Button>
     )
   );

@@ -9,7 +9,7 @@ import {
 import { ChevronDownIcon } from 'lucide-react';
 import type { ComponentProps } from 'react';
 import { createContext, memo, useContext, useEffect, useState } from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '@repo/shadcn-ui/lib/utils';
 import { AIResponse } from './response';
 
 type AIReasoningContextValue = {

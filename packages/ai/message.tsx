@@ -4,7 +4,7 @@ import {
   AvatarImage,
 } from '@repo/shadcn-ui/components/ui/avatar';
 import type { ComponentProps, HTMLAttributes } from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '@repo/shadcn-ui/lib/utils';
 
 export type AIMessageProps = HTMLAttributes<HTMLDivElement> & {
   from: 'user' | 'assistant';
