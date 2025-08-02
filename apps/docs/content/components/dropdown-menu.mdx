@@ -1,0 +1,41 @@
+---
+title: DropdownMenu
+description: A customizable dropdown-menu component.
+component: true
+---
+
+<ComponentPreview name="dropdown-menu" />
+
+## Installation
+
+```bash
+npx devcn-ui add dropdown-menu
+```
+
+## Usage
+
+```tsx
+import { DropdownMenu } from '@repo/shadcn-ui/components/dropdown-menu';
+
+export default function Example() {
+  return (
+    <DropdownMenu>
+      Your content here
+    </DropdownMenu>
+  );
+}
+```
+
+## API Reference
+
+### DropdownMenu
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | The content of the component |
+
+<PoweredBy packages={[
+  { name: "React", icon: "logos:react" },
+  { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" }
+]} />

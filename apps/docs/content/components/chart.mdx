@@ -1,0 +1,41 @@
+---
+title: Chart
+description: A customizable chart component.
+component: true
+---
+
+<ComponentPreview name="chart" />
+
+## Installation
+
+```bash
+npx devcn-ui add chart
+```
+
+## Usage
+
+```tsx
+import { Chart } from '@repo/shadcn-ui/components/chart';
+
+export default function Example() {
+  return (
+    <Chart>
+      Your content here
+    </Chart>
+  );
+}
+```
+
+## API Reference
+
+### Chart
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | The content of the component |
+
+<PoweredBy packages={[
+  { name: "React", icon: "logos:react" },
+  { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" }
+]} />

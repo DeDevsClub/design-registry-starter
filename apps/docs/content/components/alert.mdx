@@ -1,0 +1,41 @@
+---
+title: Alert
+description: A customizable alert component.
+component: true
+---
+
+<ComponentPreview name="alert" />
+
+## Installation
+
+```bash
+npx devcn-ui add alert
+```
+
+## Usage
+
+```tsx
+import { Alert } from '@repo/shadcn-ui/components/alert';
+
+export default function Example() {
+  return (
+    <Alert>
+      Your content here
+    </Alert>
+  );
+}
+```
+
+## API Reference
+
+### Alert
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | The content of the component |
+
+<PoweredBy packages={[
+  { name: "React", icon: "logos:react" },
+  { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" }
+]} />

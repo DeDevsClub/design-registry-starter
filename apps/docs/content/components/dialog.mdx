@@ -1,0 +1,41 @@
+---
+title: Dialog
+description: A customizable dialog component.
+component: true
+---
+
+<ComponentPreview name="dialog" />
+
+## Installation
+
+```bash
+npx devcn-ui add dialog
+```
+
+## Usage
+
+```tsx
+import { Dialog } from '@repo/shadcn-ui/components/dialog';
+
+export default function Example() {
+  return (
+    <Dialog>
+      Your content here
+    </Dialog>
+  );
+}
+```
+
+## API Reference
+
+### Dialog
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | The content of the component |
+
+<PoweredBy packages={[
+  { name: "React", icon: "logos:react" },
+  { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" }
+]} />

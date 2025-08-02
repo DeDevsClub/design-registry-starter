@@ -29,7 +29,7 @@ console.log(`📦 Found ${registryFiles.length} components in registry`);
 // Generate registry index
 const registryIndex = {
   name: 'devcn-ui',
-  description: 'DevcN UI Design Registry - Beautiful, accessible components built with React and Tailwind CSS',
+  description: 'Devcn UI Design Registry - Beautiful, accessible components built with React and Tailwind CSS',
   url: 'https://devcn-ui.dedevs.com',
   components: []
 };
@@ -39,7 +39,7 @@ for (const componentName of registryFiles) {
   try {
     const registryPath = join(registryDir, `${componentName}.json`);
     const componentData = JSON.parse(readFileSync(registryPath, 'utf8'));
-    
+
     // Validate component data
     if (!componentData.name || !componentData.files) {
       console.warn(`⚠️  Skipping invalid component: ${componentName}`);
@@ -110,18 +110,18 @@ writeFileSync(
 // Generate component list for documentation
 const componentListMdx = `---
 title: Component Registry
-description: All available components in the DevcN UI registry
+description: All available components in the Devcn UI registry
 ---
 
 # Component Registry
 
-The DevcN UI registry contains ${registryIndex.components.length} components that you can add to your project.
+The Devcn UI registry contains ${registryIndex.components.length} components that you can add to your project.
 
 ## Available Components
 
 ${registryIndex.components
-  .map(
-    component => `### [${component.name}](/components/${component.name})
+    .map(
+      component => `### [${component.name}](/components/${component.name})
 
 ${component.description}
 
@@ -133,12 +133,12 @@ npx devcn-ui add ${component.name}
 **Registry Dependencies:** ${component.registryDependencies.length > 0 ? component.registryDependencies.join(', ') : 'None'}
 
 ---`
-  )
-  .join('\n\n')}
+    )
+    .join('\n\n')}
 
 ## Installation
 
-To install any component, use the DevcN UI CLI:
+To install any component, use the Devcn UI CLI:
 
 \`\`\`bash
 npx devcn-ui add [component-name]

@@ -1,0 +1,41 @@
+---
+title: Checkbox
+description: A customizable checkbox component.
+component: true
+---
+
+<ComponentPreview name="checkbox" />
+
+## Installation
+
+```bash
+npx devcn-ui add checkbox
+```
+
+## Usage
+
+```tsx
+import { Checkbox } from '@repo/shadcn-ui/components/checkbox';
+
+export default function Example() {
+  return (
+    <Checkbox>
+      Your content here
+    </Checkbox>
+  );
+}
+```
+
+## API Reference
+
+### Checkbox
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | The content of the component |
+
+<PoweredBy packages={[
+  { name: "React", icon: "logos:react" },
+  { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" }
+]} />

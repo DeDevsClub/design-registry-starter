@@ -1,0 +1,41 @@
+---
+title: Table
+description: A customizable table component.
+component: true
+---
+
+<ComponentPreview name="table" />
+
+## Installation
+
+```bash
+npx devcn-ui add table
+```
+
+## Usage
+
+```tsx
+import { Table } from '@repo/shadcn-ui/components/table';
+
+export default function Example() {
+  return (
+    <Table>
+      Your content here
+    </Table>
+  );
+}
+```
+
+## API Reference
+
+### Table
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | The content of the component |
+
+<PoweredBy packages={[
+  { name: "React", icon: "logos:react" },
+  { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" }
+]} />

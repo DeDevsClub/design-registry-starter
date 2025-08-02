@@ -1,0 +1,41 @@
+---
+title: Input
+description: A customizable input component.
+component: true
+---
+
+<ComponentPreview name="input" />
+
+## Installation
+
+```bash
+npx devcn-ui add input
+```
+
+## Usage
+
+```tsx
+import { Input } from '@repo/shadcn-ui/components/input';
+
+export default function Example() {
+  return (
+    <Input>
+      Your content here
+    </Input>
+  );
+}
+```
+
+## API Reference
+
+### Input
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | The content of the component |
+
+<PoweredBy packages={[
+  { name: "React", icon: "logos:react" },
+  { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" }
+]} />

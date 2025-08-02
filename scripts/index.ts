@@ -52,11 +52,11 @@ if (command === 'add') {
       );
 
       // Use shadcn/ui CLI to add the component
-      execSync(`npx shadcn@latest add ${url.toString()}`, { 
+      execSync(`npx shadcn@latest add ${url.toString()}`, {
         stdio: 'inherit',
         cwd: process.cwd()
       });
-      
+
       console.log(`✅ Successfully added ${packageName}\n`);
       successCount++;
     } catch (error) {
@@ -73,7 +73,7 @@ if (command === 'add') {
   if (errorCount > 0) {
     console.log(`   ❌ Failed: ${errorCount}`);
   }
-  
+
   if (errorCount > 0) {
     process.exit(1);
   }
@@ -85,26 +85,26 @@ if (command === 'add') {
 
 function showHelp() {
   console.log(`
-🎨 DevcN UI - Component Registry CLI
+🎨 Devcn UI - Component Registry CLI
 `);
   console.log('Add beautiful, accessible components to your React project.\n');
-  
+
   console.log('USAGE:');
   console.log('  npx devcn-ui <command> [options]\n');
-  
+
   console.log('COMMANDS:');
   console.log('  add <component...>    Add one or more components to your project');
   console.log('  --help, -h           Show this help message');
   console.log('  --version, -v        Show version information\n');
-  
+
   console.log('EXAMPLES:');
   console.log('  npx devcn-ui add button');
   console.log('  npx devcn-ui add button card dialog');
   console.log('  npx devcn-ui --help\n');
-  
+
   console.log('DOCUMENTATION:');
   console.log('  https://devcn-ui.dedevs.com\n');
-  
+
   console.log('ISSUES:');
   console.log('  https://github.com/DeDevsClub/design-registry-starter/issues\n');
 }

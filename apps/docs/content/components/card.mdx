@@ -1,0 +1,41 @@
+---
+title: Card
+description: A customizable card component.
+component: true
+---
+
+<ComponentPreview name="card" />
+
+## Installation
+
+```bash
+npx devcn-ui add card
+```
+
+## Usage
+
+```tsx
+import { Card } from '@repo/shadcn-ui/components/card';
+
+export default function Example() {
+  return (
+    <Card>
+      Your content here
+    </Card>
+  );
+}
+```
+
+## API Reference
+
+### Card
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | The content of the component |
+
+<PoweredBy packages={[
+  { name: "React", icon: "logos:react" },
+  { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" }
+]} />

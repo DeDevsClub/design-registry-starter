@@ -1,6 +1,6 @@
-# DevcN UI CLI
+# Devcn UI CLI
 
-A command-line interface for adding components from the DevcN UI Design Registry to your React projects.
+A command-line interface for adding components from the Devcn UI Design Registry to your React projects.
 
 ## Installation
 
@@ -15,11 +15,13 @@ npx devcn-ui add button
 ### Add Components
 
 Add a single component:
+
 ```bash
 npx devcn-ui add button
 ```
 
 Add multiple components:
+
 ```bash
 npx devcn-ui add button card dialog
 ```
@@ -27,6 +29,7 @@ npx devcn-ui add button card dialog
 ### Help
 
 Show help information:
+
 ```bash
 npx devcn-ui --help
 ```
@@ -34,13 +37,14 @@ npx devcn-ui --help
 ### Version
 
 Show version information:
+
 ```bash
 npx devcn-ui --version
 ```
 
 ## Available Components
 
-Visit [https://devcn-ui.dedevs.com](https://devcn-ui.dedevs.com) to browse all available components.
+Visit <https://devcn-ui.dedevs.com> to browse all available components.
 
 ## How It Works
 
@@ -53,28 +57,34 @@ The CLI uses the [shadcn/ui CLI](https://ui.shadcn.com) under the hood to instal
 
 ## Requirements
 
-- Node.js 18 or higher
-- A React project with Tailwind CSS
-- Internet connection
+* Node.js 18 or higher
+* A React project with Tailwind CSS
+* Internet connection
 
 ## Troubleshooting
 
 ### Component Not Found
+
 If you get a "component not found" error, make sure:
-- The component name is spelled correctly
-- The component exists in our registry
-- You have an internet connection
+
+* The component name is spelled correctly
+* The component exists in our registry
+* You have an internet connection
 
 ### Permission Errors
+
 If you encounter permission errors, try:
-- Running with `sudo` (not recommended)
-- Using a Node version manager like `nvm`
-- Checking your npm permissions
+
+* Running with `sudo` (not recommended)
+* Using a Node version manager like `nvm`
+* Checking your npm permissions
 
 ### Network Issues
+
 If you're behind a corporate firewall:
-- Check your proxy settings
-- Ensure access to `registry.npmjs.org` and `devcn-ui.dedevs.com`
+
+* Check your proxy settings
+* Ensure access to `registry.npmjs.org` and `devcn-ui.dedevs.com`
 
 ## Development
 

@@ -1,0 +1,41 @@
+---
+title: Toast
+description: A customizable toast component.
+component: true
+---
+
+<ComponentPreview name="toast" />
+
+## Installation
+
+```bash
+npx devcn-ui add toast
+```
+
+## Usage
+
+```tsx
+import { Toast } from '@repo/shadcn-ui/components/toast';
+
+export default function Example() {
+  return (
+    <Toast>
+      Your content here
+    </Toast>
+  );
+}
+```
+
+## API Reference
+
+### Toast
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | The content of the component |
+
+<PoweredBy packages={[
+  { name: "React", icon: "logos:react" },
+  { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" }
+]} />
