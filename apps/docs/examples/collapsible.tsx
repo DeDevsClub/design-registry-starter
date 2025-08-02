@@ -1,4 +1,4 @@
-import { Collapsible } from '@repo/shadcn-ui/components/collapsible';
+import { Collapsible } from '@repo/shadcn-ui/components/ui/collapsible';
 
 export default function CollapsibleExample() {
   return (

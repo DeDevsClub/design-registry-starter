@@ -1,4 +1,4 @@
-import { RadioGroup } from '@repo/shadcn-ui/components/radio-group';
+import { RadioGroup } from '@repo/shadcn-ui/components/ui/radio-group';
 
 export default function RadioGroupExample() {
   return (

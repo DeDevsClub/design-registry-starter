@@ -1,4 +1,4 @@
-import { AlertDialog } from '@repo/shadcn-ui/components/alert-dialog';
+import { AlertDialog } from '@repo/shadcn-ui/components/ui/alert-dialog';
 
 export default function AlertDialogExample() {
   return (

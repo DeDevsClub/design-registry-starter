@@ -1,0 +1,455 @@
+{
+  "packages": [
+    "ai",
+    "code-block",
+    "eslint-config",
+    "shadcn-ui",
+    "ui"
+  ],
+  "totalComponents": 20,
+  "componentsByPackage": {
+    "ai": [
+      {
+        "name": "branch",
+        "displayName": "Branch",
+        "package": "ai",
+        "filePath": "/Users/buns/Documents/GitHub/DeDevsClub/design-registry-starter/packages/ai/branch.tsx",
+        "fileName": "branch",
+        "hasTypeScript": true,
+        "exports": [
+          "AIBranchProps",
+          "AIBranch",
+          "AIBranchMessagesProps",
+          "AIBranchMessages",
+          "AIBranchSelectorProps",
+          "AIBranchSelector",
+          "AIBranchPreviousProps",
+          "AIBranchPrevious",
+          "AIBranchNextProps",
+          "AIBranchNext",
+          "AIBranchPageProps",
+          "AIBranchPage"
+        ],
+        "dependencies": [
+          "lucide-react",
+          "react",
+          "react"
+        ]
+      },
+      {
+        "name": "conversation",
+        "displayName": "Conversation",
+        "package": "ai",
+        "filePath": "/Users/buns/Documents/GitHub/DeDevsClub/design-registry-starter/packages/ai/conversation.tsx",
+        "fileName": "conversation",
+        "hasTypeScript": true,
+        "exports": [
+          "AIConversationProps",
+          "AIConversation",
+          "AIConversationContentProps",
+          "AIConversationContent",
+          "AIConversationScrollButton"
+        ],
+        "dependencies": [
+          "lucide-react",
+          "react",
+          "react",
+          "use-stick-to-bottom"
+        ]
+      },
+      {
+        "name": "input",
+        "displayName": "Input",
+        "package": "ai",
+        "filePath": "/Users/buns/Documents/GitHub/DeDevsClub/design-registry-starter/packages/ai/input.tsx",
+        "fileName": "input",
+        "hasTypeScript": true,
+        "exports": [
+          "AIInputProps",
+          "AIInput",
+          "AIInputTextareaProps",
+          "AIInputTextarea",
+          "AIInputToolbarProps",
+          "AIInputToolbar",
+          "AIInputToolsProps",
+          "AIInputTools",
+          "AIInputButtonProps",
+          "AIInputButton",
+          "AIInputSubmitProps",
+          "AIInputSubmit",
+          "AIInputModelSelectProps",
+          "AIInputModelSelect",
+          "AIInputModelSelectTriggerProps",
+          "AIInputModelSelectTrigger",
+          "AIInputModelSelectContentProps",
+          "AIInputModelSelectContent",
+          "AIInputModelSelectItemProps",
+          "AIInputModelSelectItem",
+          "AIInputModelSelectValueProps",
+          "AIInputModelSelectValue"
+        ],
+        "dependencies": [
+          "lucide-react",
+          "react"
+        ]
+      },
+      {
+        "name": "message",
+        "displayName": "Message",
+        "package": "ai",
+        "filePath": "/Users/buns/Documents/GitHub/DeDevsClub/design-registry-starter/packages/ai/message.tsx",
+        "fileName": "message",
+        "hasTypeScript": true,
+        "exports": [
+          "AIMessageProps",
+          "AIMessage",
+          "AIMessageContentProps",
+          "AIMessageContent",
+          "AIMessageAvatarProps",
+          "AIMessageAvatar"
+        ],
+        "dependencies": [
+          "react"
+        ]
+      },
+      {
+        "name": "reasoning",
+        "displayName": "Reasoning",
+        "package": "ai",
+        "filePath": "/Users/buns/Documents/GitHub/DeDevsClub/design-registry-starter/packages/ai/reasoning.tsx",
+        "fileName": "reasoning",
+        "hasTypeScript": true,
+        "exports": [
+          "AIReasoningProps",
+          "AIReasoning",
+          "AIReasoningTriggerProps",
+          "AIReasoningTrigger",
+          "AIReasoningContentProps",
+          "AIReasoningContent"
+        ],
+        "dependencies": [
+          "@radix-ui/react-use-controllable-state",
+          "lucide-react",
+          "react",
+          "react"
+        ]
+      },
+      {
+        "name": "response",
+        "displayName": "Response",
+        "package": "ai",
+        "filePath": "/Users/buns/Documents/GitHub/DeDevsClub/design-registry-starter/packages/ai/response.tsx",
+        "fileName": "response",
+        "hasTypeScript": true,
+        "exports": [
+          "AIResponseProps",
+          "AIResponse"
+        ],
+        "dependencies": [
+          "react",
+          "react",
+          "react-markdown",
+          "rehype-katex",
+          "remark-gfm",
+          "remark-math"
+        ]
+      },
+      {
+        "name": "source",
+        "displayName": "Source",
+        "package": "ai",
+        "filePath": "/Users/buns/Documents/GitHub/DeDevsClub/design-registry-starter/packages/ai/source.tsx",
+        "fileName": "source",
+        "hasTypeScript": true,
+        "exports": [
+          "AISourcesProps",
+          "AISources",
+          "AISourcesTriggerProps",
+          "AISourcesTrigger",
+          "AISourcesContentProps",
+          "AISourcesContent",
+          "AISourceProps",
+          "AISource"
+        ],
+        "dependencies": [
+          "lucide-react",
+          "react"
+        ]
+      },
+      {
+        "name": "suggestion",
+        "displayName": "Suggestion",
+        "package": "ai",
+        "filePath": "/Users/buns/Documents/GitHub/DeDevsClub/design-registry-starter/packages/ai/suggestion.tsx",
+        "fileName": "suggestion",
+        "hasTypeScript": true,
+        "exports": [
+          "AISuggestionsProps",
+          "AISuggestions",
+          "AISuggestionProps",
+          "AISuggestion"
+        ],
+        "dependencies": [
+          "react"
+        ]
+      },
+      {
+        "name": "tool",
+        "displayName": "Tool",
+        "package": "ai",
+        "filePath": "/Users/buns/Documents/GitHub/DeDevsClub/design-registry-starter/packages/ai/tool.tsx",
+        "fileName": "tool",
+        "hasTypeScript": true,
+        "exports": [
+          "AIToolStatus",
+          "AIToolProps",
+          "AITool",
+          "AIToolHeaderProps",
+          "AIToolHeader",
+          "AIToolContentProps",
+          "AIToolContent",
+          "AIToolParametersProps",
+          "AIToolParameters",
+          "AIToolResultProps",
+          "AIToolResult"
+        ],
+        "dependencies": [
+          "react"
+        ]
+      }
+    ],
+    "code-block": [
+      {
+        "name": "server",
+        "displayName": "Server",
+        "package": "code-block",
+        "filePath": "/Users/buns/Documents/GitHub/DeDevsClub/design-registry-starter/packages/code-block/server.tsx",
+        "fileName": "server",
+        "hasTypeScript": true,
+        "exports": [
+          "CodeBlockContentProps",
+          "CodeBlockContent"
+        ],
+        "dependencies": [
+          "react"
+        ]
+      }
+    ],
+    "eslint-config": [
+      {
+        "name": "next",
+        "displayName": "Next",
+        "package": "eslint-config",
+        "filePath": "/Users/buns/Documents/GitHub/DeDevsClub/design-registry-starter/packages/eslint-config/next.js",
+        "fileName": "next",
+        "hasTypeScript": false,
+        "exports": [
+          "nextJsConfig"
+        ],
+        "dependencies": [
+          "@eslint/js",
+          "@next/eslint-plugin-next",
+          "eslint-config-prettier",
+          "eslint-plugin-react",
+          "eslint-plugin-react-hooks",
+          "globals",
+          "typescript-eslint"
+        ]
+      },
+      {
+        "name": "react-internal",
+        "displayName": "ReactInternal",
+        "package": "eslint-config",
+        "filePath": "/Users/buns/Documents/GitHub/DeDevsClub/design-registry-starter/packages/eslint-config/react-internal.js",
+        "fileName": "react-internal",
+        "hasTypeScript": false,
+        "exports": [
+          "config"
+        ],
+        "dependencies": [
+          "@eslint/js",
+          "eslint-config-prettier",
+          "eslint-plugin-react",
+          "eslint-plugin-react-hooks",
+          "globals",
+          "typescript-eslint"
+        ]
+      }
+    ],
+    "shadcn-ui": [
+      {
+        "name": "toaster",
+        "displayName": "Toaster",
+        "package": "shadcn-ui",
+        "filePath": "/Users/buns/Documents/GitHub/DeDevsClub/design-registry-starter/packages/shadcn-ui/components/ui/toaster.tsx",
+        "fileName": "toaster",
+        "hasTypeScript": true,
+        "exports": [
+          "Toaster"
+        ],
+        "dependencies": []
+      },
+      {
+        "name": "toaster",
+        "displayName": "Toaster",
+        "package": "shadcn-ui",
+        "filePath": "/Users/buns/Documents/GitHub/DeDevsClub/design-registry-starter/packages/shadcn-ui/components/ui/toaster.tsx",
+        "fileName": "toaster",
+        "hasTypeScript": true,
+        "exports": [
+          "Toaster"
+        ],
+        "dependencies": []
+      },
+      {
+        "name": "use-mobile",
+        "displayName": "UseMobile",
+        "package": "shadcn-ui",
+        "filePath": "/Users/buns/Documents/GitHub/DeDevsClub/design-registry-starter/packages/shadcn-ui/hooks/use-mobile.ts",
+        "fileName": "use-mobile",
+        "hasTypeScript": true,
+        "exports": [
+          "useIsMobile"
+        ],
+        "dependencies": [
+          "react"
+        ]
+      },
+      {
+        "name": "use-mobile",
+        "displayName": "UseMobile",
+        "package": "shadcn-ui",
+        "filePath": "/Users/buns/Documents/GitHub/DeDevsClub/design-registry-starter/packages/shadcn-ui/hooks/use-mobile.tsx",
+        "fileName": "use-mobile",
+        "hasTypeScript": true,
+        "exports": [
+          "useIsMobile"
+        ],
+        "dependencies": [
+          "react"
+        ]
+      },
+      {
+        "name": "use-toast",
+        "displayName": "UseToast",
+        "package": "shadcn-ui",
+        "filePath": "/Users/buns/Documents/GitHub/DeDevsClub/design-registry-starter/packages/shadcn-ui/hooks/use-toast.ts",
+        "fileName": "use-toast",
+        "hasTypeScript": true,
+        "exports": [
+          "reducer"
+        ],
+        "dependencies": [
+          "react"
+        ]
+      }
+    ],
+    "ui": [
+      {
+        "name": "button",
+        "displayName": "Button",
+        "package": "ui",
+        "filePath": "/Users/buns/Documents/GitHub/DeDevsClub/design-registry-starter/packages/ui/src/button.tsx",
+        "fileName": "button",
+        "hasTypeScript": true,
+        "exports": [
+          "Button"
+        ],
+        "dependencies": [
+          "react"
+        ]
+      },
+      {
+        "name": "card",
+        "displayName": "Card",
+        "package": "ui",
+        "filePath": "/Users/buns/Documents/GitHub/DeDevsClub/design-registry-starter/packages/ui/src/card.tsx",
+        "fileName": "card",
+        "hasTypeScript": true,
+        "exports": [
+          "Card"
+        ],
+        "dependencies": [
+          "react"
+        ]
+      },
+      {
+        "name": "code",
+        "displayName": "Code",
+        "package": "ui",
+        "filePath": "/Users/buns/Documents/GitHub/DeDevsClub/design-registry-starter/packages/ui/src/code.tsx",
+        "fileName": "code",
+        "hasTypeScript": true,
+        "exports": [
+          "Code"
+        ],
+        "dependencies": [
+          "react"
+        ]
+      }
+    ]
+  },
+  "unregistered": [
+    {
+      "name": "branch",
+      "package": "ai"
+    },
+    {
+      "name": "conversation",
+      "package": "ai"
+    },
+    {
+      "name": "message",
+      "package": "ai"
+    },
+    {
+      "name": "reasoning",
+      "package": "ai"
+    },
+    {
+      "name": "response",
+      "package": "ai"
+    },
+    {
+      "name": "source",
+      "package": "ai"
+    },
+    {
+      "name": "suggestion",
+      "package": "ai"
+    },
+    {
+      "name": "tool",
+      "package": "ai"
+    },
+    {
+      "name": "server",
+      "package": "code-block"
+    },
+    {
+      "name": "next",
+      "package": "eslint-config"
+    },
+    {
+      "name": "react-internal",
+      "package": "eslint-config"
+    },
+    {
+      "name": "use-mobile",
+      "package": "shadcn-ui"
+    },
+    {
+      "name": "use-mobile",
+      "package": "shadcn-ui"
+    },
+    {
+      "name": "use-toast",
+      "package": "shadcn-ui"
+    },
+    {
+      "name": "code",
+      "package": "ui"
+    }
+  ],
+  "lastScanned": "2025-08-02T18:59:45.608Z"
+}

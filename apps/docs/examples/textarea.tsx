@@ -1,4 +1,4 @@
-import { Textarea } from '@repo/shadcn-ui/components/textarea';
+import { Textarea } from '@repo/shadcn-ui/components/ui/textarea';
 
 export default function TextareaExample() {
   return (

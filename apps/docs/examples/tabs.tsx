@@ -1,4 +1,4 @@
-import { Tabs } from '@repo/shadcn-ui/components/tabs';
+import { Tabs } from '@repo/shadcn-ui/components/ui/tabs';
 
 export default function TabsExample() {
   return (

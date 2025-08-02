@@ -1,4 +1,4 @@
-import { Avatar } from '@repo/shadcn-ui/components/avatar';
+import { Avatar } from '@repo/shadcn-ui/components/ui/avatar';
 
 export default function AvatarExample() {
   return (

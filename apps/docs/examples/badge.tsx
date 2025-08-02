@@ -1,4 +1,4 @@
-import { Badge } from '@repo/shadcn-ui/components/badge';
+import { Badge } from '@repo/shadcn-ui/components/ui/badge';
 
 export default function BadgeExample() {
   return (

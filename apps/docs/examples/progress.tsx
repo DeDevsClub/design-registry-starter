@@ -1,4 +1,4 @@
-import { Progress } from '@repo/shadcn-ui/components/progress';
+import { Progress } from '@repo/shadcn-ui/components/ui/progress';
 
 export default function ProgressExample() {
   return (

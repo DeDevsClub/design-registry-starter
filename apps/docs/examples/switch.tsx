@@ -1,4 +1,4 @@
-import { Switch } from '@repo/shadcn-ui/components/switch';
+import { Switch } from '@repo/shadcn-ui/components/ui/switch';
 
 export default function SwitchExample() {
   return (

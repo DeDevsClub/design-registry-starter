@@ -1,4 +1,4 @@
-import { Select } from '@repo/shadcn-ui/components/select';
+import { Select } from '@repo/shadcn-ui/components/ui/select';
 
 export default function SelectExample() {
   return (

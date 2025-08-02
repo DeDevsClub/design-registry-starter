@@ -1,4 +1,4 @@
-import { Resizable } from '@repo/shadcn-ui/components/resizable';
+import { Resizable } from '@repo/shadcn-ui/components/ui/resizable';
 
 export default function ResizableExample() {
   return (

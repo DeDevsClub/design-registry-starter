@@ -1,4 +1,4 @@
-import { Toast } from '@repo/shadcn-ui/components/toast';
+import { Toast } from '@repo/shadcn-ui/components/ui/toast';
 
 export default function ToastExample() {
   return (

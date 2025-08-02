@@ -1,4 +1,4 @@
-import { Checkbox } from '@repo/shadcn-ui/components/checkbox';
+import { Checkbox } from '@repo/shadcn-ui/components/ui/checkbox';
 
 export default function CheckboxExample() {
   return (

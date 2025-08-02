@@ -1,4 +1,4 @@
-import { ContextMenu } from '@repo/shadcn-ui/components/context-menu';
+import { ContextMenu } from '@repo/shadcn-ui/components/ui/context-menu';
 
 export default function ContextMenuExample() {
   return (

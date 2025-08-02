@@ -1,4 +1,4 @@
-import { Command } from '@repo/shadcn-ui/components/command';
+import { Command } from '@repo/shadcn-ui/components/ui/command';
 
 export default function CommandExample() {
   return (

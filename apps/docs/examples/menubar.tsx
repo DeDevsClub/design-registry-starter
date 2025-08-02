@@ -1,4 +1,4 @@
-import { Menubar } from '@repo/shadcn-ui/components/menubar';
+import { Menubar } from '@repo/shadcn-ui/components/ui/menubar';
 
 export default function MenubarExample() {
   return (

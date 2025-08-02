@@ -1,4 +1,4 @@
-import { Table } from '@repo/shadcn-ui/components/table';
+import { Table } from '@repo/shadcn-ui/components/ui/table';
 
 export default function TableExample() {
   return (

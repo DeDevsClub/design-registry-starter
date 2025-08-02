@@ -1,4 +1,4 @@
-import { ToggleGroup } from '@repo/shadcn-ui/components/toggle-group';
+import { ToggleGroup } from '@repo/shadcn-ui/components/ui/toggle-group';
 
 export default function ToggleGroupExample() {
   return (

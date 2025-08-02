@@ -1,4 +1,4 @@
-import { Drawer } from '@repo/shadcn-ui/components/drawer';
+import { Drawer } from '@repo/shadcn-ui/components/ui/drawer';
 
 export default function DrawerExample() {
   return (

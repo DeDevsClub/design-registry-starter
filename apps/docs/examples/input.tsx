@@ -1,4 +1,4 @@
-import { Input } from '@repo/shadcn-ui/components/input';
+import { Input } from '@repo/shadcn-ui/components/ui/input';
 
 export default function InputExample() {
   return (

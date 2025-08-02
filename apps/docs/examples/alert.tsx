@@ -1,4 +1,4 @@
-import { Alert } from '@repo/shadcn-ui/components/alert';
+import { Alert } from '@repo/shadcn-ui/components/ui/alert';
 
 export default function AlertExample() {
   return (

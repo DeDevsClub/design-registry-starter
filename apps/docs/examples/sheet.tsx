@@ -1,4 +1,4 @@
-import { Sheet } from '@repo/shadcn-ui/components/sheet';
+import { Sheet } from '@repo/shadcn-ui/components/ui/sheet';
 
 export default function SheetExample() {
   return (

@@ -1,4 +1,4 @@
-import { InputOtp } from '@repo/shadcn-ui/components/input-otp';
+import { InputOtp } from '@repo/shadcn-ui/components/ui/input-otp';
 
 export default function InputOtpExample() {
   return (

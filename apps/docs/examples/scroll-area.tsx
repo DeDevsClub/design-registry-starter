@@ -1,4 +1,4 @@
-import { ScrollArea } from '@repo/shadcn-ui/components/scroll-area';
+import { ScrollArea } from '@repo/shadcn-ui/components/ui/scroll-area';
 
 export default function ScrollAreaExample() {
   return (

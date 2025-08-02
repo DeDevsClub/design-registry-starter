@@ -1,4 +1,4 @@
-import { Sonner } from '@repo/shadcn-ui/components/sonner';
+import { Sonner } from '@repo/shadcn-ui/components/ui/sonner';
 
 export default function SonnerExample() {
   return (

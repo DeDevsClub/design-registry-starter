@@ -1,4 +1,4 @@
-import { DropdownMenu } from '@repo/shadcn-ui/components/dropdown-menu';
+import { DropdownMenu } from '@repo/shadcn-ui/components/ui/dropdown-menu';
 
 export default function DropdownMenuExample() {
   return (

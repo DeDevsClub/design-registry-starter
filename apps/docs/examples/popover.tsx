@@ -1,4 +1,4 @@
-import { Popover } from '@repo/shadcn-ui/components/popover';
+import { Popover } from '@repo/shadcn-ui/components/ui/popover';
 
 export default function PopoverExample() {
   return (

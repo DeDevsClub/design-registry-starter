@@ -1,4 +1,4 @@
-import { HoverCard } from '@repo/shadcn-ui/components/hover-card';
+import { HoverCard } from '@repo/shadcn-ui/components/ui/hover-card';
 
 export default function HoverCardExample() {
   return (

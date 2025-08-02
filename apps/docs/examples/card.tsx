@@ -1,4 +1,4 @@
-import { Card } from '@repo/shadcn-ui/components/card';
+import { Card } from '@repo/shadcn-ui/components/ui/card';
 
 export default function CardExample() {
   return (

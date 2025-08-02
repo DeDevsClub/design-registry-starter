@@ -1,4 +1,4 @@
-import { Chart } from '@repo/shadcn-ui/components/chart';
+import { Chart } from '@repo/shadcn-ui/components/ui/chart';
 
 export default function ChartExample() {
   return (

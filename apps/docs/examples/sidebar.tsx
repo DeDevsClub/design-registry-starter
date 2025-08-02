@@ -1,4 +1,4 @@
-import { Sidebar } from '@repo/shadcn-ui/components/sidebar';
+import { Sidebar } from '@repo/shadcn-ui/components/ui/sidebar';
 
 export default function SidebarExample() {
   return (

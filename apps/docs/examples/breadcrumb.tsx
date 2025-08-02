@@ -1,4 +1,4 @@
-import { Breadcrumb } from '@repo/shadcn-ui/components/breadcrumb';
+import { Breadcrumb } from '@repo/shadcn-ui/components/ui/breadcrumb';
 
 export default function BreadcrumbExample() {
   return (

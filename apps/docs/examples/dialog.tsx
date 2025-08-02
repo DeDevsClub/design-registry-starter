@@ -1,4 +1,4 @@
-import { Dialog } from '@repo/shadcn-ui/components/dialog';
+import { Dialog } from '@repo/shadcn-ui/components/ui/dialog';
 
 export default function DialogExample() {
   return (

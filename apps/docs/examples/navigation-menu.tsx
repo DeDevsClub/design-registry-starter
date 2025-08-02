@@ -1,4 +1,4 @@
-import { NavigationMenu } from '@repo/shadcn-ui/components/navigation-menu';
+import { NavigationMenu } from '@repo/shadcn-ui/components/ui/navigation-menu';
 
 export default function NavigationMenuExample() {
   return (

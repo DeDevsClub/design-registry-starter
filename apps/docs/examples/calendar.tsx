@@ -1,4 +1,4 @@
-import { Calendar } from '@repo/shadcn-ui/components/calendar';
+import { Calendar } from '@repo/shadcn-ui/components/ui/calendar';
 
 export default function CalendarExample() {
   return (

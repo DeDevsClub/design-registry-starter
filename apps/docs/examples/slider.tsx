@@ -1,4 +1,4 @@
-import { Slider } from '@repo/shadcn-ui/components/slider';
+import { Slider } from '@repo/shadcn-ui/components/ui/slider';
 
 export default function SliderExample() {
   return (

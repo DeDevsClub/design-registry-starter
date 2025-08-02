@@ -1,4 +1,4 @@
-import { Accordion } from '@repo/shadcn-ui/components/accordion';
+import { Accordion } from '@repo/shadcn-ui/components/ui/accordion';
 
 export default function AccordionExample() {
   return (

@@ -1,4 +1,4 @@
-import { Label } from '@repo/shadcn-ui/components/label';
+import { Label } from '@repo/shadcn-ui/components/ui/label';
 
 export default function LabelExample() {
   return (

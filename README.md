@@ -1,155 +1,415 @@
-# UI Design Registry Starter Kit
-This repository provides a starter kit for creating a UI Registry with a bare minimum implementation. It is designed to facilitate custom and ShadCN-compatible CLI access, making it easy to integrate and extend UI components within your projects.
+# 🎨 Design Registry Starter Kit
 
-## Features:
-    • Minimal Implementation: A streamlined setup to get you started quickly without unnecessary complexity.
-    • Custom CLI Access: Easily customize the command-line interface to suit your specific needs.
-    • ShadCN Compatibility: Seamlessly integrate with ShadCN for enhanced UI component management.
+> **A production-ready template for building your own component registry with shadcn/ui compatibility and custom CLI tooling.**
 
-## Getting Started
-To begin using this starter kit, clone the repository and follow the setup instructions in the documentation. You'll be able to customize and extend the functionality to match your project's requirements.
+This starter kit provides everything you need to create, maintain, and distribute a component registry similar to [shadcn/ui](https://ui.shadcn.com). Built with modern tooling and best practices, it enables developers to build their own design systems with seamless CLI integration.
 
-## Contributing
-Contributions are welcome! If you have ideas for improvements or new features, feel free to open an issue or submit a pull request.
+## 🌟 Why Use This Starter Kit?
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+### **For Component Library Authors**
+- **Zero-config setup**: Get a fully functional registry in minutes
+- **shadcn/ui compatibility**: Leverage the existing ecosystem and tooling
+- **Automated workflows**: Component discovery, registry generation, and publishing
+- **Professional documentation**: Built-in docs site with live examples
+- **CLI distribution**: Publish your own `npx your-registry add component` CLI
 
+### **For Development Teams**
+- **Consistent design system**: Maintain design consistency across projects
+- **Easy adoption**: Developers can add components with a single command
+- **Version control**: Track component changes and updates
+- **Customization**: Full control over component implementations
+
+## 🏗️ Architecture Overview
+
+This monorepo is built with **Turborepo** and follows a modular architecture:
+
+```
+design-registry-starter/
+├── apps/
+│   └── docs/                    # Next.js documentation site
+│       ├── app/                 # App router pages
+│       ├── content/             # MDX documentation
+│       └── public/registry/     # Generated component registry
+├── packages/
+│   ├── ai/                      # AI-specific components
+│   ├── code-block/              # Code display components
+│   ├── editor/                  # Editor components
+│   ├── shadcn-ui/               # Base shadcn/ui components
+│   ├── snippet/                 # Code snippet components
+│   └── ui/                      # Custom UI components
+├── scripts/
+│   ├── index.ts                 # CLI entry point
+│   ├── generate-registry.js     # Registry generation
+│   ├── discover-components.js   # Component discovery
+│   └── register-all-components.js # Batch registration
+└── dist/
+    └── index.js                 # Built CLI executable
+```
+
+### **Core Components**
+
+1. **📦 Component Packages**: Modular packages containing reusable components
+2. **🛠️ CLI Tool**: Custom CLI for installing components (`npx your-registry add component`)
+3. **📚 Documentation Site**: Next.js app with live examples and installation guides
+4. **🤖 Automation Scripts**: Tools for component discovery and registry generation
+5. **📋 Registry System**: JSON-based component metadata and file definitions
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- **Node.js** 18+ and **pnpm** (recommended)
+- **Git** for version control
+- **GitHub account** for repository hosting
+
+### 1. Clone and Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/design-registry-starter.git
+cd design-registry-starter
+
+# Install dependencies
+pnpm install
+
+# Start development server
+pnpm dev
+```
+
+The documentation site will be available at `http://localhost:3422`
+
+### 2. Customize Your Registry
+
+#### Update Package Information
+
+Edit `package.json` to reflect your registry:
+
+```json
+{
+  "name": "your-registry-name",
+  "description": "Your custom component registry",
+  "homepage": "https://your-registry.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/your-registry.git"
+  },
+  "bin": {
+    "your-cli": "dist/index.js"
+  }
+}
+```
+
+#### Update CLI Configuration
+
+Modify `scripts/index.ts` to customize your CLI:
+
+```typescript
+// Update the registry URL
+const url = new URL(
+  `registry/${packageName}.json`,
+  'https://your-registry.com/'  // Your registry URL
+);
+```
+
+## 🔧 Component Development
+
+### Creating New Components
+
+#### 1. Manual Component Creation
+
+Create a new package in `packages/`:
+
+```bash
+mkdir packages/your-component
+cd packages/your-component
+```
+
+Create the component structure:
+
+```
+packages/your-component/
+├── package.json
+├── src/
+│   └── index.tsx
+└── README.md
+```
+
+#### 2. Component Package Structure
+
+**`package.json`**:
+```json
+{
+  "name": "@repo/your-component",
+  "version": "0.0.1",
+  "private": true,
+  "main": "src/index.tsx",
+  "types": "src/index.tsx"
+}
+```
+
+**`src/index.tsx`**:
+```tsx
+import React from 'react';
+import { cn } from '@/lib/utils';
+
+export interface YourComponentProps {
+  className?: string;
+  children?: React.ReactNode;
+}
+
+export const YourComponent = ({ className, children, ...props }: YourComponentProps) => {
+  return (
+    <div className={cn('your-component-styles', className)} {...props}>
+      {children}
+    </div>
+  );
+};
+
+export default YourComponent;
+```
+
+### Component Discovery and Registration
+
+#### Automatic Discovery
+
+Discover all components in your packages:
+
+```bash
+pnpm discover:components
+```
+
+This script scans `packages/` and identifies exportable components.
+
+#### Generate Registry Entries
+
+Create registry JSON files for all components:
+
+```bash
+pnpm register:all
+```
+
+This generates individual `.json` files in `apps/docs/public/registry/` for each component.
+
+#### Build Registry Index
+
+Generate the main registry index:
+
+```bash
+pnpm generate:registry
+```
+
+This creates `apps/docs/public/registry/index.json` with all component metadata.
+
+### Registry File Structure
+
+Each component generates a registry file like this:
+
+```json
+{
+  "name": "your-component",
+  "description": "A custom component for your design system",
+  "dependencies": ["@radix-ui/react-slot"],
+  "devDependencies": ["@types/react"],
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "name": "your-component.tsx",
+      "content": "...component source code..."
+    }
+  ],
+  "type": "components:ui"
+}
+```
+
+## 📦 CLI Development and Publishing
+
+### Building the CLI
+
+```bash
+# Build the CLI
+pnpm build:cli
+
+# Test the CLI locally
+pnpm test:cli
+```
+
+### Publishing Your Registry
+
+#### 1. Prepare for Publishing
+
+Ensure your registry is complete:
+
+```bash
+# Discover and register all components
+pnpm discover:components
+pnpm register:all
+pnpm generate:registry
+
+# Build the CLI
+pnpm build:cli
+
+# Build the documentation site
+pnpm build
+```
+
+#### 2. Publish to npm
+
+```bash
+# Patch version (bug fixes)
+pnpm publish:patch
+
+# Minor version (new features)
+pnpm publish:minor
+
+# Major version (breaking changes)
+pnpm publish:major
+```
+
+#### 3. Deploy Documentation
+
+Deploy your docs site to Vercel, Netlify, or your preferred platform:
+
+```bash
+# For Vercel
+vercel --prod
+
+# For Netlify
+netlify deploy --prod --dir=apps/docs/out
+```
+
+### Using Your Published Registry
+
+Once published, users can install components from your registry:
+
+```bash
+# Install your CLI globally or use with npx
+npx your-registry-name add button card dialog
+
+# Or install globally
+npm install -g your-registry-name
+your-registry-name add button
+```
+
+## 🛠️ Development Workflow
+
+### Daily Development
+
+```bash
+# Start development server
+pnpm dev
+
+# Add new components to packages/
+# Run discovery and registration
+pnpm discover:components && pnpm register:all
+
+# Generate updated registry
+pnpm generate:registry
+
+# Test CLI locally
+pnpm test:cli
+```
+
+### Quality Assurance
+
+```bash
+# Lint code
+pnpm lint
+
+# Format code
+pnpm format
+
+# Type checking
+pnpm build
+
+# Validate registry
+pnpm validate:registry
+```
+
+### Release Process
+
+1. **Update components** and test locally
+2. **Run full discovery and registration**:
+   ```bash
+   pnpm discover:components
+   pnpm register:all
+   pnpm generate:registry
+   ```
+3. **Build and test CLI**:
+   ```bash
+   pnpm build:cli
+   pnpm test:cli
+   ```
+4. **Commit changes** and create release
+5. **Publish to npm**:
+   ```bash
+   pnpm publish:minor  # or patch/major
+   ```
+6. **Deploy documentation** to your hosting platform
+
+## 📋 Available Scripts
+
+| Script | Description |
+|--------|-------------|
+| `pnpm dev` | Start development server |
+| `pnpm build` | Build all packages and apps |
+| `pnpm build:cli` | Build CLI executable |
+| `pnpm test:cli` | Test CLI locally |
+| `pnpm discover:components` | Discover components in packages |
+| `pnpm register:all` | Generate registry files for all components |
+| `pnpm generate:registry` | Build registry index |
+| `pnpm validate:registry` | Validate registry structure |
+| `pnpm publish:patch/minor/major` | Version bump and publish |
+| `pnpm lint` | Lint codebase |
+| `pnpm format` | Format code |
+
+## 🎯 Best Practices
+
+### Component Development
+- **Follow shadcn/ui patterns** for consistency
+- **Use TypeScript** for type safety
+- **Include proper prop interfaces** and documentation
+- **Add examples** in your documentation
+- **Test components** thoroughly before publishing
+
+### Registry Management
+- **Run discovery and registration** after adding new components
+- **Validate registry** before publishing
+- **Version components** appropriately
+- **Document breaking changes** in release notes
+
+### CLI Distribution
+- **Test CLI locally** before publishing
+- **Follow semantic versioning** for releases
+- **Provide clear error messages** for users
+- **Include helpful documentation** and examples
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read our contributing guidelines and submit pull requests for any improvements.
+
+### Development Setup
+
+1. Fork the repository
+2. Clone your fork: `git clone https://github.com/your-username/design-registry-starter.git`
+3. Install dependencies: `pnpm install`
+4. Create a feature branch: `git checkout -b feature/amazing-feature`
+5. Make your changes and test thoroughly
+6. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## 🔗 Resources
+
+- **[shadcn/ui](https://ui.shadcn.com)** - Original inspiration and compatibility target
+- **[Turborepo](https://turbo.build)** - Monorepo build system
+- **[Next.js](https://nextjs.org)** - Documentation framework
+- **[Tailwind CSS](https://tailwindcss.com)** - Styling framework
+- **[Radix UI](https://radix-ui.com)** - Primitive components
 
 ---
 
-# Turborepo starter
+**Ready to build your own component registry?** 🚀
 
-This Turborepo starter is maintained by the Turborepo core team.
-
-## Using this example
-
-Run the following command:
-
-```sh
-npx create-turbo@latest
-```
-
-## What's inside?
-
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
-```
-
-You can build a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
-
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
-
-You can develop a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
-
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+Start by cloning this repository and following the setup instructions above. Within minutes, you'll have a fully functional component registry with CLI distribution capabilities!

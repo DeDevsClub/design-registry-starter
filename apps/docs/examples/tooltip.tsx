@@ -1,4 +1,4 @@
-import { Tooltip } from '@repo/shadcn-ui/components/tooltip';
+import { Tooltip } from '@repo/shadcn-ui/components/ui/tooltip';
 
 export default function TooltipExample() {
   return (

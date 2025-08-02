@@ -1,4 +1,4 @@
-import { Pagination } from '@repo/shadcn-ui/components/pagination';
+import { Pagination } from '@repo/shadcn-ui/components/ui/pagination';
 
 export default function PaginationExample() {
   return (

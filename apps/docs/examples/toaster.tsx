@@ -1,4 +1,4 @@
-import { Toaster } from '@repo/shadcn-ui/components/toaster';
+import { Toaster } from '@repo/shadcn-ui/components/ui/toaster';
 
 export default function ToasterExample() {
   return (

@@ -1,4 +1,4 @@
-import { Carousel } from '@repo/shadcn-ui/components/carousel';
+import { Carousel } from '@repo/shadcn-ui/components/ui/carousel';
 
 export default function CarouselExample() {
   return (
