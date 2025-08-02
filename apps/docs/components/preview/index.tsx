@@ -1,4 +1,5 @@
 import { readFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   Tabs,
@@ -24,14 +25,33 @@ export const Preview = async ({
   className,
   type = 'component',
 }: PreviewProps) => {
-  const code = await readFile(
-    join(process.cwd(), 'examples', `${path}.tsx`),
-    'utf-8'
-  );
+  const filePath = join(process.cwd(), 'examples', `${path}.tsx`);
+  
+  // Check if the example file exists
+  if (!existsSync(filePath)) {
+    return (
+      <div className="rounded-lg border border-dashed border-gray-300 p-8 text-center text-gray-500">
+        <p className="text-sm">Example for <code className="font-mono">{path}</code> is not yet available.</p>
+        <p className="text-xs mt-2">This component is being prepared and will be available soon.</p>
+      </div>
+    );
+  }
+  
+  const code = await readFile(filePath, 'utf-8');
 
-  const Component = await import(`../../examples/${path}.tsx`).then(
-    (module) => module.default
-  );
+  let Component;
+  try {
+    Component = await import(`../../examples/${path}.tsx`).then(
+      (module) => module.default
+    );
+  } catch (error) {
+    return (
+      <div className="rounded-lg border border-dashed border-red-300 p-8 text-center text-red-500">
+        <p className="text-sm">Failed to load example for <code className="font-mono">{path}</code>.</p>
+        <p className="text-xs mt-2">There may be an issue with the component implementation.</p>
+      </div>
+    );
+  }
 
   const parsedCode = code
     .replace(/@repo\/shadcn-ui\//g, '@/')
