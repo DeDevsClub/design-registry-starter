@@ -5,7 +5,7 @@ import { execSync } from 'node:child_process';
 const args = process.argv.slice(2);
 
 if (args.length < 2 || args[0] !== 'add') {
-  console.log('Usage: npx dedevs-ui add [...packages]');
+  console.log('Usage: npx devcn-ui add [...packages]');
   process.exit(1);
 }
 
@@ -20,8 +20,8 @@ for (const packageName of packageNames) {
 
   const url = new URL(
     `registry/${packageName}.json`,
-    'https://ui.dedevs.club'
+    'https://devcn-ui.dedevs.com'
   );
 
-  execSync(`npx dedevsui@latest add ${url.toString()}`);
+  execSync(`npx devcn-ui@latest add ${url.toString()}`);
 }
