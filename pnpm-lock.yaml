@@ -194,7 +194,7 @@ importers:
         specifier: ^5.8.3
         version: 5.9.2
 
-  apps/www:
+  apps/web:
     dependencies:
       class-variance-authority:
         specifier: ^0.7.1
