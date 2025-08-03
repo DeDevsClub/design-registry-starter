@@ -1,0 +1,41 @@
+---
+title: Sonner
+description: A customizable sonner component.
+component: true
+---
+
+<ComponentPreview name="sonner" />
+
+## Installation
+
+```bash
+npx devcn-ui add sonner
+```
+
+## Usage
+
+```tsx
+import { Sonner } from '@repo/shadcn-ui/components/sonner';
+
+export default function Example() {
+  return (
+    <Sonner>
+      Your content here
+    </Sonner>
+  );
+}
+```
+
+## API Reference
+
+### Sonner
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | The content of the component |
+
+<PoweredBy packages={[
+  { name: "React", icon: "logos:react" },
+  { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" }
+]} />

@@ -1,0 +1,41 @@
+---
+title: ContextMenu
+description: A customizable context-menu component.
+component: true
+---
+
+<ComponentPreview name="context-menu" />
+
+## Installation
+
+```bash
+npx devcn-ui add context-menu
+```
+
+## Usage
+
+```tsx
+import { ContextMenu } from '@repo/shadcn-ui/components/context-menu';
+
+export default function Example() {
+  return (
+    <ContextMenu>
+      Your content here
+    </ContextMenu>
+  );
+}
+```
+
+## API Reference
+
+### ContextMenu
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | The content of the component |
+
+<PoweredBy packages={[
+  { name: "React", icon: "logos:react" },
+  { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" }
+]} />

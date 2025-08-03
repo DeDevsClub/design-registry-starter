@@ -1,0 +1,41 @@
+---
+title: Slider
+description: A customizable slider component.
+component: true
+---
+
+<ComponentPreview name="slider" />
+
+## Installation
+
+```bash
+npx devcn-ui add slider
+```
+
+## Usage
+
+```tsx
+import { Slider } from '@repo/shadcn-ui/components/slider';
+
+export default function Example() {
+  return (
+    <Slider>
+      Your content here
+    </Slider>
+  );
+}
+```
+
+## API Reference
+
+### Slider
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | The content of the component |
+
+<PoweredBy packages={[
+  { name: "React", icon: "logos:react" },
+  { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" }
+]} />

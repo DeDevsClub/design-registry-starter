@@ -1,0 +1,41 @@
+---
+title: NavigationMenu
+description: A customizable navigation-menu component.
+component: true
+---
+
+<ComponentPreview name="navigation-menu" />
+
+## Installation
+
+```bash
+npx devcn-ui add navigation-menu
+```
+
+## Usage
+
+```tsx
+import { NavigationMenu } from '@repo/shadcn-ui/components/navigation-menu';
+
+export default function Example() {
+  return (
+    <NavigationMenu>
+      Your content here
+    </NavigationMenu>
+  );
+}
+```
+
+## API Reference
+
+### NavigationMenu
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | The content of the component |
+
+<PoweredBy packages={[
+  { name: "React", icon: "logos:react" },
+  { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" }
+]} />

@@ -1,0 +1,41 @@
+---
+title: ScrollArea
+description: A customizable scroll-area component.
+component: true
+---
+
+<ComponentPreview name="scroll-area" />
+
+## Installation
+
+```bash
+npx devcn-ui add scroll-area
+```
+
+## Usage
+
+```tsx
+import { ScrollArea } from '@repo/shadcn-ui/components/scroll-area';
+
+export default function Example() {
+  return (
+    <ScrollArea>
+      Your content here
+    </ScrollArea>
+  );
+}
+```
+
+## API Reference
+
+### ScrollArea
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | The content of the component |
+
+<PoweredBy packages={[
+  { name: "React", icon: "logos:react" },
+  { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" }
+]} />

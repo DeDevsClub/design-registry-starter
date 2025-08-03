@@ -1,0 +1,41 @@
+---
+title: Pagination
+description: A customizable pagination component.
+component: true
+---
+
+<ComponentPreview name="pagination" />
+
+## Installation
+
+```bash
+npx devcn-ui add pagination
+```
+
+## Usage
+
+```tsx
+import { Pagination } from '@repo/shadcn-ui/components/pagination';
+
+export default function Example() {
+  return (
+    <Pagination>
+      Your content here
+    </Pagination>
+  );
+}
+```
+
+## API Reference
+
+### Pagination
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | The content of the component |
+
+<PoweredBy packages={[
+  { name: "React", icon: "logos:react" },
+  { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" }
+]} />

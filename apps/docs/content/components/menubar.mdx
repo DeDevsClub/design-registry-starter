@@ -1,0 +1,41 @@
+---
+title: Menubar
+description: A customizable menubar component.
+component: true
+---
+
+<ComponentPreview name="menubar" />
+
+## Installation
+
+```bash
+npx devcn-ui add menubar
+```
+
+## Usage
+
+```tsx
+import { Menubar } from '@repo/shadcn-ui/components/menubar';
+
+export default function Example() {
+  return (
+    <Menubar>
+      Your content here
+    </Menubar>
+  );
+}
+```
+
+## API Reference
+
+### Menubar
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | The content of the component |
+
+<PoweredBy packages={[
+  { name: "React", icon: "logos:react" },
+  { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" }
+]} />

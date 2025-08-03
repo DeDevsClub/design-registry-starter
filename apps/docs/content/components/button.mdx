@@ -1,0 +1,41 @@
+---
+title: Button
+description: A customizable button component.
+component: true
+---
+
+<ComponentPreview name="button" />
+
+## Installation
+
+```bash
+npx devcn-ui add button
+```
+
+## Usage
+
+```tsx
+import { Button } from '@repo/shadcn-ui/components/button';
+
+export default function Example() {
+  return (
+    <Button>
+      Your content here
+    </Button>
+  );
+}
+```
+
+## API Reference
+
+### Button
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | The content of the component |
+
+<PoweredBy packages={[
+  { name: "React", icon: "logos:react" },
+  { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" }
+]} />

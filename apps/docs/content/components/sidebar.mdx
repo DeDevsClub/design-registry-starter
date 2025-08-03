@@ -1,0 +1,41 @@
+---
+title: Sidebar
+description: A customizable sidebar component.
+component: true
+---
+
+<ComponentPreview name="sidebar" />
+
+## Installation
+
+```bash
+npx devcn-ui add sidebar
+```
+
+## Usage
+
+```tsx
+import { Sidebar } from '@repo/shadcn-ui/components/sidebar';
+
+export default function Example() {
+  return (
+    <Sidebar>
+      Your content here
+    </Sidebar>
+  );
+}
+```
+
+## API Reference
+
+### Sidebar
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | The content of the component |
+
+<PoweredBy packages={[
+  { name: "React", icon: "logos:react" },
+  { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" }
+]} />
