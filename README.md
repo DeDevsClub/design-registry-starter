@@ -168,37 +168,61 @@ export const YourComponent = ({ className, children, ...props }: YourComponentPr
 export default YourComponent;
 ```
 
-### Component Discovery and Registration
+### Registry Building Process
 
-#### Automatic Discovery
+#### Automated Registry Generation
 
-Discover all components in your packages:
+This starter kit includes an automated registry generation system that scans your components and builds the complete registry with a single command.
 
-```bash
-pnpm discover:components
-```
-
-This script scans `packages/` and identifies exportable components.
-
-#### Generate Registry Entries
-
-Create registry JSON files for all components:
+**Quick Start - Build Complete Registry:**
 
 ```bash
-pnpm register:all
+# Generate and build the complete registry in one command
+pnpm run registry
 ```
 
-This generates individual `.json` files in `apps/docs/public/registry/` for each component.
+This command will:
+1. Scan all packages for component files
+2. Generate the `registry.json` file with proper shadcn/ui schema
+3. Build individual component JSON files in `public/r/`
+4. Make your registry ready for CLI consumption
 
-#### Build Registry Index
+#### Individual Commands
 
-Generate the main registry index:
+For more granular control, you can run each step separately:
 
 ```bash
-pnpm generate:registry
+# 1. Generate the registry.json file by scanning packages
+pnpm run gen:registry
+
+# 2. Build the registry (creates individual JSON files)
+pnpm run build:registry
 ```
 
-This creates `apps/docs/public/registry/index.json` with all component metadata.
+#### How It Works
+
+The automated system:
+
+- **Scans `packages/` directory**: Automatically discovers all TypeScript/TSX component files
+- **Excludes config packages**: Ignores `eslint-config`, `typescript-config`, and `shadcn-ui` packages
+- **Handles AI components**: Special logic for the `ai` package to create individual registry entries
+- **Generates descriptions**: Maps component names to meaningful descriptions
+- **Creates proper schema**: Follows the official shadcn/ui registry format
+
+#### Adding New Components
+
+When you add new components:
+
+1. Create your component in the appropriate `packages/` directory
+2. Run `pnpm run registry` to regenerate the complete registry
+3. Your new component will be automatically discovered and included
+
+#### Registry Structure
+
+The automated process creates:
+
+- `registry.json` - Main registry file with all component metadata
+- `public/r/[component].json` - Individual component files for CLI consumption
 
 ### Registry File Structure
 
@@ -221,6 +245,66 @@ Each component generates a registry file like this:
 }
 ```
 
+### Registry Generation Script Details
+
+The `scripts/generateRegistry.ts` file is the heart of the automated registry system. Here's how it works:
+
+#### Script Features
+
+- **Automatic Package Discovery**: Scans the `packages/` directory for all subdirectories
+- **Component File Detection**: Identifies `.ts` and `.tsx` files while excluding test files
+- **Smart AI Component Handling**: Creates individual registry entries for each file in the `ai` package
+- **Description Mapping**: Uses a predefined dictionary to provide meaningful component descriptions
+- **Proper Schema Generation**: Creates registry files that comply with shadcn/ui standards
+
+#### Customizing the Script
+
+To customize the registry generation for your needs:
+
+1. **Update Component Descriptions**: Edit the `COMPONENT_DESCRIPTIONS` object in `scripts/generateRegistry.ts`:
+
+```typescript
+const COMPONENT_DESCRIPTIONS: Record<string, string> = {
+  'your-component': 'Description of your component',
+  'another-component': 'Another component description',
+  // Add your components here
+};
+```
+
+2. **Modify Package Exclusions**: Update the `excludedPackages` array:
+
+```typescript
+const excludedPackages = ['eslint-config', 'typescript-config', 'your-excluded-package'];
+```
+
+3. **Change Registry Metadata**: Update the registry object properties:
+
+```typescript
+const registry: Registry = {
+  $schema: 'https://ui.shadcn.com/schema/registry.json',
+  name: 'your-registry-name',
+  homepage: 'https://your-registry-homepage.com',
+  items: allItems
+};
+```
+
+#### Script Output
+
+When you run `pnpm run gen:registry`, you'll see output like:
+
+```
+🔍 Scanning packages directory...
+📦 Processing package: ai
+📦 Processing package: code-block
+📦 Processing package: editor
+✅ Registry generated successfully!
+📄 Generated 14 component(s):
+   - ai-branch: AI conversation branch component
+   - code-block: Enhanced code block component
+   - editor: Code editor component
+💾 Registry saved to: registry.json
+```
+
 ## 📦 CLI Development and Publishing
 
 ### Building the CLI
@@ -240,16 +324,14 @@ pnpm test:cli
 Ensure your registry is complete:
 
 ```bash
-# Discover and register all components
-pnpm discover:components
-pnpm register:all
-pnpm generate:registry
+# Generate and build the complete registry
+pnpm run registry
 
 # Build the CLI
-pnpm build:cli
+pnpm run build:cli
 
 # Build the documentation site
-pnpm build
+pnpm run build
 ```
 
 #### 2. Publish to npm
@@ -299,14 +381,11 @@ your-registry-name add button
 pnpm dev
 
 # Add new components to packages/
-# Run discovery and registration
-pnpm discover:components && pnpm register:all
-
-# Generate updated registry
-pnpm generate:registry
+# Regenerate the complete registry
+pnpm run registry
 
 # Test CLI locally
-pnpm test:cli
+pnpm run test:cli
 ```
 
 ### Quality Assurance
