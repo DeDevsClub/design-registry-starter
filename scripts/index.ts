@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 import { execSync } from 'node:child_process';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
 import { get } from 'node:https';
-import { join } from 'node:path';
+import { join, extname } from 'node:path';
 
 async function main() {
   const args = process.argv.slice(2);
@@ -74,6 +74,12 @@ async function addComponentWithDependencies(packageName: string) {
     
     // Install the component using shadcn
     execSync(`npx shadcn@latest add ${url.toString()}`, { stdio: 'inherit' });
+    
+    // Transform imports in the generated component files
+    await transformComponentImports(packageName);
+    
+    // Check and install missing shadcn/ui components
+    await installMissingShadcnComponents(componentData);
     
   } catch (error) {
     console.error(`Failed to add ${packageName}:`, error instanceof Error ? error.message : String(error));
@@ -176,6 +182,140 @@ async function installMissingDependencies(dependencies: string[]) {
   } catch (error) {
     console.error('❌ Failed to install dependencies:', error instanceof Error ? error.message : String(error));
     console.log('Please install them manually:', missingDeps.join(', '));
+  }
+}
+
+async function transformComponentImports(packageName: string) {
+  const componentsDir = join(process.cwd(), 'components');
+  
+  if (!existsSync(componentsDir)) {
+    return; // No components directory found
+  }
+  
+  // Find component files that might have been created
+  const componentFiles = findComponentFiles(componentsDir);
+  
+  for (const filePath of componentFiles) {
+    try {
+      const content = readFileSync(filePath, 'utf-8');
+      const transformedContent = transformImports(content);
+      
+      if (content !== transformedContent) {
+        writeFileSync(filePath, transformedContent, 'utf-8');
+        console.log(`✨ Transformed imports in ${filePath.replace(process.cwd(), '.')}`);
+      }
+    } catch (error) {
+      console.warn(`⚠️  Could not transform imports in ${filePath}:`, error instanceof Error ? error.message : String(error));
+    }
+  }
+}
+
+function findComponentFiles(dir: string): string[] {
+  const files: string[] = [];
+  
+  try {
+    const entries = readdirSync(dir);
+    
+    for (const entry of entries) {
+      const fullPath = join(dir, entry);
+      const stat = statSync(fullPath);
+      
+      if (stat.isDirectory()) {
+        // Recursively search subdirectories
+        files.push(...findComponentFiles(fullPath));
+      } else if (stat.isFile() && ['.tsx', '.ts', '.jsx', '.js'].includes(extname(entry))) {
+        files.push(fullPath);
+      }
+    }
+  } catch (error) {
+    // Ignore errors reading directory
+  }
+  
+  return files;
+}
+
+function transformImports(content: string): string {
+  // Transform @repo/shadcn-ui imports to standard shadcn/ui imports
+  let transformed = content.replace(
+    /import\s+({[^}]*})\s+from\s+['"]@repo\/shadcn-ui\/components\/ui\/([^'"]+)['"]/g,
+    "import $1 from '@/components/ui/$2'"
+  );
+  
+  // Transform @repo/shadcn-ui/lib/utils imports
+  transformed = transformed.replace(
+    /import\s+({[^}]*})\s+from\s+['"]@repo\/shadcn-ui\/lib\/utils['"]/g,
+    "import $1 from '@/lib/utils'"
+  );
+  
+  // Transform @repo/code-block imports to direct component imports
+  transformed = transformed.replace(
+    /import\s+({[^}]*})\s+from\s+['"]@repo\/code-block['"]/g,
+    "import $1 from '@/components/ui/code-block'"
+  );
+  
+  // Transform other @repo/ imports by removing the @repo/ prefix
+  transformed = transformed.replace(
+    /import\s+([^\s]+)\s+from\s+['"]@repo\/([^'"]+)['"]/g,
+    "import $1 from '$2'"
+  );
+  
+  return transformed;
+}
+
+async function installMissingShadcnComponents(componentData: any) {
+  if (!componentData.files || !Array.isArray(componentData.files)) {
+    return;
+  }
+  
+  const requiredShadcnComponents = new Set<string>();
+  
+  // Extract shadcn/ui component imports from the component files
+  for (const file of componentData.files) {
+    if (file.content) {
+      // Look for @repo/shadcn-ui imports that will be transformed to @/components/ui/
+      const shadcnImportRegex = /@repo\/shadcn-ui\/components\/ui\/([^'"]+)/g;
+      let match;
+      
+      while ((match = shadcnImportRegex.exec(file.content)) !== null) {
+        const componentName = match[1];
+        requiredShadcnComponents.add(componentName);
+      }
+    }
+  }
+  
+  if (requiredShadcnComponents.size === 0) {
+    return;
+  }
+  
+  // Check which components are missing
+  const missingComponents = [];
+  const componentsUiDir = join(process.cwd(), 'components', 'ui');
+  
+  for (const componentName of requiredShadcnComponents) {
+    const componentPath = join(componentsUiDir, `${componentName}.tsx`);
+    const altComponentPath = join(componentsUiDir, `${componentName}.ts`);
+    
+    if (!existsSync(componentPath) && !existsSync(altComponentPath)) {
+      missingComponents.push(componentName);
+    }
+  }
+  
+  if (missingComponents.length === 0) {
+    return;
+  }
+  
+  console.log(`🧩 Installing missing shadcn/ui components: ${missingComponents.join(', ')}`);
+  
+  // Install missing shadcn/ui components
+  for (const componentName of missingComponents) {
+    try {
+      console.log(`  Installing ${componentName}...`);
+      execSync(`npx shadcn@latest add ${componentName}`, { stdio: 'pipe' });
+      console.log(`  ✅ ${componentName} installed`);
+    } catch (error) {
+      console.warn(`  ⚠️  Could not install ${componentName}:`, error instanceof Error ? error.message : String(error));
+      console.log(`  Please install it manually: npx shadcn@latest add ${componentName}`);
+    }
   }
 }
 
