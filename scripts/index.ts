@@ -107,8 +107,16 @@ function extractDependencies(componentData: any): string[] {
           ? importPath.split('/').slice(0, 2).join('/')
           : importPath.split('/')[0];
           
-        // Skip React and common built-ins
-        if (!['react', 'react-dom', 'next'].includes(packageName)) {
+        // Skip React, Next.js, and workspace packages
+        if (['react', 'react-dom', 'next'].includes(packageName) || packageName.startsWith('@repo/')) {
+          continue;
+        }
+        
+        // Map known workspace dependencies to their public equivalents
+        const mappedDependency = mapWorkspaceDependency(packageName, importPath);
+        if (mappedDependency) {
+          dependencies.add(mappedDependency);
+        } else {
           dependencies.add(packageName);
         }
       }
@@ -116,6 +124,23 @@ function extractDependencies(componentData: any): string[] {
   }
   
   return Array.from(dependencies);
+}
+
+function mapWorkspaceDependency(packageName: string, importPath: string): string | null {
+  // Handle @repo/shadcn-ui imports - these don't need external dependencies
+  // as they're typically just re-exports of standard shadcn/ui components
+  if (packageName === '@repo/shadcn-ui') {
+    return null; // shadcn/ui components are installed via shadcn CLI, not npm
+  }
+  
+  // Handle @repo/code-block - map to its actual dependencies
+  if (packageName === '@repo/code-block') {
+    // Return the actual dependencies that code-block needs
+    return 'shiki'; // or whatever the actual dependency is
+  }
+  
+  // Add more mappings as needed
+  return null;
 }
 
 async function installMissingDependencies(dependencies: string[]) {
