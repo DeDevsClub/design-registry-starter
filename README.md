@@ -433,13 +433,15 @@ pnpm validate:registry
 | `pnpm build` | Build all packages and apps |
 | `pnpm build:cli` | Build CLI executable |
 | `pnpm test:cli` | Test CLI locally |
-| `pnpm discover:components` | Discover components in packages |
-| `pnpm register:all` | Generate registry files for all components |
-| `pnpm generate:registry` | Build registry index |
-| `pnpm validate:registry` | Validate registry structure |
+| `pnpm run gen:registry` | Generate registry.json by scanning packages |
+| `pnpm run build:registry` | Build individual component JSON files |
+| `pnpm run registry` | Complete registry generation and build |
 | `pnpm publish:patch/minor/major` | Version bump and publish |
 | `pnpm lint` | Lint codebase |
 | `pnpm format` | Format code |
+| `pnpm clean` | Clean node_modules and build artifacts |
+| `pnpm bump-deps` | Update all dependencies |
+| `pnpm bump-ui` | Update shadcn/ui components |
 
 ## 🎯 Best Practices
 
@@ -451,9 +453,10 @@ pnpm validate:registry
 - **Test components** thoroughly before publishing
 
 ### Registry Management
-- **Run discovery and registration** after adding new components
-- **Validate registry** before publishing
-- **Version components** appropriately
+- **Run `pnpm run registry`** after adding new components to regenerate the complete registry
+- **Update component descriptions** in `scripts/generateRegistry.ts` for new components
+- **Test the CLI** with `pnpm run test:cli` before publishing
+- **Version components** appropriately using semantic versioning
 - **Document breaking changes** in release notes
 
 ### CLI Distribution
