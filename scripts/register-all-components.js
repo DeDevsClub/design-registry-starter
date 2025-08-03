@@ -203,7 +203,7 @@ function extractComponentInfo(content, componentName, packageName) {
 function generateRegistryEntry(componentName, componentInfo, content, packageName) {
   return {
     name: componentName,
-    type: 'components:ui',
+    type: 'registry:ui',
     description: componentInfo.description,
     dependencies: [...new Set(componentInfo.dependencies)], // Remove duplicates
     devDependencies: [],
@@ -212,7 +212,7 @@ function generateRegistryEntry(componentName, componentInfo, content, packageNam
       {
         path: `components/${componentName}.tsx`,
         content: content,
-        type: 'components:ui'
+        type: 'registry:ui'
       }
     ]
   };

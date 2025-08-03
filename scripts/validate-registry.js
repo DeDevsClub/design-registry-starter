@@ -20,7 +20,7 @@ let warnings = 0;
 
 // Required fields for registry components
 const requiredFields = ['name', 'type', 'files'];
-const validTypes = ['components:ui', 'components:block', 'components:example'];
+const validTypes = ['registry:ui', 'registry:block', 'registry:example'];
 
 if (!existsSync(registryDir)) {
   console.error('❌ Registry directory not found');

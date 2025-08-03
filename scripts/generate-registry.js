@@ -49,7 +49,7 @@ for (const componentName of registryFiles) {
     // Add to index
     registryIndex.components.push({
       name: componentData.name,
-      type: componentData.type || 'components:ui',
+      type: componentData.type || 'registry:ui',
       description: componentData.description || `${componentData.name} component`,
       dependencies: componentData.dependencies || [],
       devDependencies: componentData.devDependencies || [],

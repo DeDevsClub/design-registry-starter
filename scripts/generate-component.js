@@ -173,7 +173,7 @@ export default function Example() {
 // Registry template
 const registryTemplate = {
   name: componentName,
-  type: 'components:ui',
+  type: 'registry:ui',
   dependencies: [],
   devDependencies: [],
   registryDependencies: [],
@@ -181,7 +181,7 @@ const registryTemplate = {
     {
       path: `components/${componentName}.tsx`,
       content: componentTemplate,
-      type: 'components:ui'
+      type: 'registry:ui'
     }
   ]
 };
