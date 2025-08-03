@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
 import { execSync } from 'node:child_process';
+import { existsSync, readFileSync } from 'node:fs';
 import { get } from 'node:https';
+import { join } from 'node:path';
 
 async function main() {
   const args = process.argv.slice(2);
@@ -36,13 +38,7 @@ async function main() {
       }
 
       console.log(`Adding ${packageName} component...`);
-
-      const url = new URL(
-        `r/${packageName}.json`,
-        'https://devcn-ui.dedevs.com/'
-      );
-
-      execSync(`npx shadcn@latest add ${url.toString()}`);
+      await addComponentWithDependencies(packageName);
     }
   } else {
     console.log('Usage: npx devcn-ui <command> [options]');
@@ -56,6 +52,113 @@ async function main() {
     console.log('  --version, -v      Show version information');
     process.exit(1);
   }
+}
+
+async function addComponentWithDependencies(packageName: string) {
+  try {
+    // Fetch component JSON to analyze dependencies
+    const url = new URL(
+      `r/${packageName}.json`,
+      'https://devcn-ui.dedevs.com/'
+    );
+    
+    const componentData = await fetchJson(url.toString());
+    
+    // Extract dependencies from component files
+    const dependencies = extractDependencies(componentData);
+    
+    // Check and install missing dependencies
+    if (dependencies.length > 0) {
+      await installMissingDependencies(dependencies);
+    }
+    
+    // Install the component using shadcn
+    execSync(`npx shadcn@latest add ${url.toString()}`, { stdio: 'inherit' });
+    
+  } catch (error) {
+    console.error(`Failed to add ${packageName}:`, error instanceof Error ? error.message : String(error));
+    process.exit(1);
+  }
+}
+
+function extractDependencies(componentData: any): string[] {
+  const dependencies = new Set<string>();
+  
+  if (!componentData.files || !Array.isArray(componentData.files)) {
+    return [];
+  }
+  
+  for (const file of componentData.files) {
+    if (file.content) {
+      // Extract import statements
+      const importRegex = /import\s+(?:{[^}]*}|[^\s,]+|\*\s+as\s+\w+)\s+from\s+['"]([^'"]+)['"]/g;
+      let match;
+      
+      while ((match = importRegex.exec(file.content)) !== null) {
+        const importPath = match[1];
+        
+        // Skip relative imports and built-in modules
+        if (importPath.startsWith('.') || importPath.startsWith('node:')) {
+          continue;
+        }
+        
+        // Handle scoped packages and regular packages
+        const packageName = importPath.startsWith('@') 
+          ? importPath.split('/').slice(0, 2).join('/')
+          : importPath.split('/')[0];
+          
+        // Skip React and common built-ins
+        if (!['react', 'react-dom', 'next'].includes(packageName)) {
+          dependencies.add(packageName);
+        }
+      }
+    }
+  }
+  
+  return Array.from(dependencies);
+}
+
+async function installMissingDependencies(dependencies: string[]) {
+  const packageJsonPath = join(process.cwd(), 'package.json');
+  
+  if (!existsSync(packageJsonPath)) {
+    console.log('⚠️  No package.json found. Skipping dependency check.');
+    return;
+  }
+  
+  const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8'));
+  const installedDeps = {
+    ...packageJson.dependencies,
+    ...packageJson.devDependencies,
+    ...packageJson.peerDependencies
+  };
+  
+  const missingDeps = dependencies.filter(dep => !installedDeps[dep]);
+  
+  if (missingDeps.length === 0) {
+    return;
+  }
+  
+  console.log(`📦 Installing missing dependencies: ${missingDeps.join(', ')}`);
+  
+  // Detect package manager
+  const packageManager = detectPackageManager();
+  
+  try {
+    const installCommand = `${packageManager} ${packageManager === 'npm' ? 'install' : 'add'} ${missingDeps.join(' ')}`;
+    execSync(installCommand, { stdio: 'inherit' });
+    console.log('✅ Dependencies installed successfully');
+  } catch (error) {
+    console.error('❌ Failed to install dependencies:', error instanceof Error ? error.message : String(error));
+    console.log('Please install them manually:', missingDeps.join(', '));
+  }
+}
+
+function detectPackageManager(): string {
+  if (existsSync('pnpm-lock.yaml')) return 'pnpm';
+  if (existsSync('yarn.lock')) return 'yarn';
+  if (existsSync('package-lock.json')) return 'npm';
+  return 'npm'; // default fallback
 }
 
 // Run main function
