@@ -5,7 +5,7 @@ import { ArrowRightIcon, icons } from 'lucide-react';
 import Link from 'next/link';
 import type { ComponentType } from 'react';
 import { createElement } from 'react';
-// import AIInputExample from '../../../../../examples/ai-chatbot'; // Disabled
+import AIInputExample from '../../../../../examples/ai-chatbot';
 import { source } from '../../../../../lib/source';
 
 const aiChatbot = source.getPage(['blocks', 'ai-chatbot']);
@@ -16,8 +16,8 @@ const examples = [
     name: aiChatbot?.data.title,
     description: aiChatbot?.data.description,
     component: () => (
-      <div className="aspect-square overflow-hidden flex items-center justify-center bg-muted">
-        <p className="text-sm text-muted-foreground">AI Chatbot Component</p>
+      <div className="aspect-square overflow-hidden">
+        <AIInputExample />
       </div>
     ),
   },
@@ -39,9 +39,9 @@ const ExampleCard = ({
   const Icon =
     icon && icon in icons
       ? (props: LucideProps) =>
-          createElement(icons[icon as keyof typeof icons], {
-            ...props,
-          })
+        createElement(icons[icon as keyof typeof icons], {
+          ...props,
+        })
       : null;
 
   return (
